@@ -8,12 +8,17 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.*
  */
-var index  = require('webthing');
-var Property = index.Property;
-var SingleThing = index.server.SingleThing;
-var Thing = index.Thing;
-var Value = index.Value;
-var WebThingServer = index.server.WebThingServer;
+var webthing;
+try {
+  webthing = require('webthing');
+} catch(err) {
+  webthing = require('../webthing');
+}
+var Property = webthing.Property;
+var SingleThing = webthing.server.SingleThing;
+var Thing = webthing.Thing;
+var Value = webthing.Value;
+var WebThingServer = webthing.server.WebThingServer;
 var gpio = require('gpio');
 
 function makeThing(context) {
