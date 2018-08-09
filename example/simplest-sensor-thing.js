@@ -8,7 +8,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.*
  */
-var index  = require('../index');
+var index  = require('../webthing.js');
 var Property = index.Property;
 var SingleThing = index.server.SingleThing;
 var Thing = index.Thing;
@@ -64,9 +64,8 @@ function runServer() {
     server.stop();
     process.exit();
   });
-
-  self.gpio_in = gpio.export(pin, {
-    direction: 'in',
+  var config = { pin: pin, direction: gpio.DIRECTION.IN };
+  self.gpio_in = gpio.open(config,
     ready: function(){
       console.log("read on pin" + pin);
       self.gpio_in.on("change", function(value) {
