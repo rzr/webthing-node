@@ -29,16 +29,16 @@ var GpioOnOffProperty = require('./gpio-property');
 /// Relate-to: https://developer.artik.io/documentation/artik-05x/getting-started/board-ref.html
 function ARTIK05x(description)
 {
-    Thing.call(this, 'ARTIK05x', 'SDB',
+    Thing.call(this, 'ARTIK710', 'SDB',
              description || "A web connected ARTIK05x");
     var self = this;
   {
     self.gpioOnOffProperties = [
       new GpioOnOffProperty(this, "BlueLed", false,
-                            { description: "Blue LED on ARTIK710 interposer board (on GPIO39)" },
+                            { description: "Blue LED on ARTIK710 interposer board (on GPIO38)" },
                             { direction: gpio.DIRECTION.OUT, pin: 38}),
       new GpioOnOffProperty(this, "RedLed", false,
-                            { description: "Red LED on ARTIK710 interposer board (on GPIO23)" },
+                            { description: "Red LED on ARTIK710 interposer board (on GPIO28)" },
                             { direction: gpio.DIRECTION.OUT, pin: 28}),
       new GpioOnOffProperty(this, "SW403", false,
                             { description: "Up Button: Nearest board edge, next to red LED (on GPIO30)"},
