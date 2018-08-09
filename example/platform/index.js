@@ -32,7 +32,7 @@ log('log: Loading platform: ' + platform);
 var thing = require('./' + platform + '-thing.js');
 
 function runServer() {
-  var port = process.argv[2] ? Number(process.argv[2]) : 8080;
+  var port = process.argv[2] ? Number(process.argv[2]) : 8888;
   var url = "http://localhost:" + port;
 
     log('Usage:\n'
