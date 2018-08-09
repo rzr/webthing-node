@@ -9,7 +9,10 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.*
 #}
 
-FROM debian:latest
+#TODO: If needed comment default OS (debian:latest) and add yours (ie: arm32v7/debian)
+#FROM debian:latest
+FROM arm32v7/debian
+
 MAINTAINER Philippe Coval (p.coval@samsung.com)
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -30,21 +33,24 @@ ENV project webthing-iotjs
 RUN echo "#log: ${project}: Setup system" \
   && set -x \
   && apt-get update -y \
-  && apt-get install -y sudo apt-transport-https \
-  && apt-cache show iotjs || echo "TODO: it's in testing! "\
+  && apt-get install -y sudo apt-transport-https curl gnupg \
+  && apt-cache show iotjs || echo "TODO: iotjs is in Debian "buster" (testing) ! "\
   && apt-get clean \
   && sync
 
 RUN echo "#log: ${project}: Setup system: Install iotjs" \
   && set -x \
   && sudo apt-get update -y \
-  && version="debian:latest" \
+  && sudo apt-get install -y gnupg  \
   && cat /etc/os-release \
   && distro="Debian_9.0" \
   && url="http://download.opensuse.org/repositories/home:/rzrfreefr:/snapshot/$distro" \
   && file="/etc/apt/sources.list.d/org_opensuse_home_rzrfreefr_snapshot.list" \
   && echo "deb [allow-insecure=yes] $url /" | sudo tee "$file" \
+  && curl "$url/Release.key" | apt-key add - \
   && sudo apt-get update -y \
+  && apt-cache show iotjs \
+  && apt-cache show iotjs-snapshot \
   && package=iotjs-snapshot \
   && version=$(apt-cache show "$package" | grep 'Version:' | cut -d' ' -f2 | sort -n | head -n1 || echo 0) \
   && sudo apt-get install -y --allow-unauthenticated iotjs-snapshot=$version iotjs=$version \
