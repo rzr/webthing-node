@@ -214,8 +214,12 @@ A moisture sensor is just plugged on analog pin (and +5v GND, the digital pin wa
 
 Check code and instructions upsteam:
 
-https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/LevelSensor
+* https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/LevelSensor
 
+
+## DEMO: ##
+
+[![web-of-things-agriculture-20180712rzr.webm](https://s-opensource.org/wp-content/uploads/2018/07/web-of-things-agriculture-20180712rzr.gif)](https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm "Video Demo")
 
 
 ## REFERENCES: ##
