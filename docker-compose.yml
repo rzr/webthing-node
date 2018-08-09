@@ -19,8 +19,10 @@ version: "2"
 services:
   web:
     build: .
-    command: /usr/bin/iotjs example/platform/index.js
+    command: /usr/bin/iotjs example/platform/index.js 8888
     volumes:
       - /usr/local/webthing-iotjs/webthing-iotjs
+      - /sys:/sys
     ports:
       - "8888:8888"
+    privileged: true
