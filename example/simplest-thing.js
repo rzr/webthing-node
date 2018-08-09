@@ -44,6 +44,7 @@ function makeThing(context) {
 }
 
 function runServer() {
+  var self = this;
   var port = process.argv[2] ? Number(process.argv[2]) : 8888;
   var pin = process.argv[3] ? Number(process.argv[3]) : 45;
   var url = 'http://localhost:' + port + '/properties/on';
@@ -62,7 +63,7 @@ function runServer() {
     server.stop();
     process.exit();
   });
-  var gpio_out = gpio.open({
+  self.port = gpio.open({
     pin: pin,
     direction: gpio.DIRECTION.OUT
   }, function(err) {
@@ -73,7 +74,7 @@ function runServer() {
     context.onPropertyOnValueChange = function(value) {
       try {
         console.log("gpio: writing: " + value);
-        gpio_out.write(value);
+        self.port.write(value);
       } catch(err) {
         console.log("error: gpio: "  + pin);
       }
