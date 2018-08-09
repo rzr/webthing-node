@@ -160,8 +160,9 @@ function AnalogProperty(thing, name, value, metadata, config)
       }
       self.inverval = setInterval(function() {
         var value = self.port.readSync();
+        log("log: adc: " + self.getName() + ": update: 0x"  + Number(value).toString(16));
         value = Math.floor(100. * value / self.range);
-        log("log: adc: " + self.getName() + ": update: "  + value);
+        log("log: adc: " + self.getName() + ": update: "  + value + "%");
         if ( value !== self.lastValue ) {
           self.value.notifyOfExternalUpdate(Number(value));
         }
