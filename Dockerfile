@@ -55,9 +55,9 @@ WORKDIR /usr/local/${project}/${project}
 RUN echo "#log: ${project}: Preparing sources" \
   && set -x \
   && ls \
-  && cat example/multiple-things.js \
+  && cat example/platform/index.js \
   && sync
 
 EXPOSE 8888
 WORKDIR /usr/local/${project}/${project}
-CMD [ "/usr/bin/iotjs" "example/multiple-things.js"]
+CMD [ "/usr/bin/iotjs" "example/platform/index.js"]

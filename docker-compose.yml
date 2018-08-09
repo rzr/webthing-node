@@ -19,7 +19,7 @@ version: "2"
 services:
   web:
     build: .
-    command: /usr/bin/iotjs example/multiple-things.js
+    command: /usr/bin/iotjs example/platform/index.js
     volumes:
       - /usr/local/webthing-iotjs/webthing-iotjs
     ports:
