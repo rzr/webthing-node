@@ -56,17 +56,20 @@ so it should be easy to install on RaspberryPi.
 I have myself managed to make the gateway running ARTIK7 (on fedora 24)
 and it should run fine on others ARTIK4 natively or in a Docker container,
 
-https://github.com/TizenTeam/gateway/tree/sandbox/rzr/devel/artik/master
+* https://github.com/TizenTeam/gateway/tree/sandbox/rzr/devel/artik/master
+
 
 I can share more hints later, just ask tell me more on your setup.
 
 So let's stick with RaspberryPi for today,
 just install image and eventually install some adapters as explained before:
 
-https://s-opensource.org/2018/04/25/mozilla-iot-generic-sensors/
+* https://s-opensource.org/2018/04/25/mozilla-iot-generic-sensors/
 
+* https://s-opensource.org/wp-content/uploads/2018/04/virtual-things-1024x795.png
 
-https://s-opensource.org/wp-content/uploads/2018/04/virtual-things-1024x795.png
+* TODO: There is bug with several properties of same patch so the gateway should be rebuild until my patch is merged:
+  * https://github.com/mozilla-iot/gateway/pull/1249
 
 
 ### USING IOTJS ON GNU/LINUX: ###
