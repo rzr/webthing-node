@@ -50,31 +50,55 @@ It's functionnal but has some limitations that worth to be known:
 See notes for details
 
 
-### PRERIQUISTE: ###
+### PRERIQUISTE: SETUP GATWEAY ###
 
 Since Mozilla Gateway 0.5 has been just released,
 so it should be easy to install on RaspberryPi.
 
-I have myself managed to make the gateway running ARTIK7 (on fedora 24)
-and it should run fine on others ARTIK4 natively or in a Docker container,
-
-* https://github.com/TizenTeam/gateway/tree/sandbox/rzr/devel/artik/master
-
-
-I can share more hints later, just ask tell me more on your setup.
-
-So let's stick with RaspberryPi for today,
-just install image and eventually install some adapters as explained before:
-
-* https://s-opensource.org/2018/04/25/mozilla-iot-generic-sensors/
-
-* https://s-opensource.org/wp-content/uploads/2018/04/virtual-things-1024x795.png
-
-TODO: There is bug with several properties of same patch so the gateway should be rebuild until my patch is merged:
+TODO: There is bug in current release,
+with several properties of same patch,
+so the gateway should be rebuild until my patch is merged:
 
 * https://github.com/mozilla-iot/gateway/issues/1148
 * https://github.com/mozilla-iot/gateway/pull/1249
 * https://github.com/TizenTeam/node-sqlite3
+
+Once installed, you can check by installing "virtual-adapter" as explained before:
+
+* https://s-opensource.org/2018/04/25/mozilla-iot-generic-sensors/
+
+![virtual-things](https://s-opensource.org/wp-content/uploads/2018/04/virtual-things-1024x795.png)
+
+
+#### RASPBIAN ####
+
+Just install released image on RaspberryPi 2 or 3,
+
+
+#### GNU/LINUX ####
+
+
+* TODO: documment
+
+#### DOCKER ####
+
+* TODO: documment
+
+
+#### ARTIK710 ####
+
+
+I have myself managed to make the gateway running ARTIK7 (on fedora 24)
+and it should run fine on others ARTIK4 natively or in a Docker container,
+
+* TODO : document support
+* https://github.com/TizenTeam/gateway/tree/sandbox/rzr/devel/artik/master
+
+
+#### OTHERS ####
+
+I can share more hints later, just ask, tell me more on your setup.
+
 
 
 ### USING IOTJS ON GNU/LINUX: ###
@@ -205,6 +229,10 @@ Test in an other shell:
 }
 ```
 
+TODO: Fix to support shemas
+
+* https://iot.mozilla.org/schemas/
+
 
 #### ON RASPBIAN: ####
 
@@ -246,6 +274,7 @@ in longer term I plan to align iotjs API for IO modules for node.
 
 TODO: upstream into webthing-node (reusable part)
 
+* https://github.com/TizenTeam/GpiO
 
 ### EXTRA: USING SENSORS AND ACTUATORS: ###
 
@@ -273,7 +302,6 @@ since my fixes were upstreamed.
 * https://github.com/TizenTeam/bmp085
 * https://github.com/TizenTeam/bh1750
 * https://github.com/TizenTeam/gateway
-* https://github.com/TizenTeam/GpiO
 
 
 ### EXTRA: ARDUINO AND ESP ###
@@ -329,7 +357,7 @@ This Web of Thing demo "world first smart orchid ever" is not that new, I am sur
 ## TODO: ##
 
 * Fix Things description
-* Upstream most I can to webthing-node
+* Upstream the most I can to webthing-node
 * Rename webthing-node to webthing-iotjs
 * Relocate to https://github.com/rzr/webthing-iotjs
 * Transpile webthing-node for IoT.js (using babel?)
