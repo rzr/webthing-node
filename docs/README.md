@@ -67,20 +67,25 @@ Although it is functional, it has some limitations that worth to be known:
 ![ARTIK05x](https://camo.githubusercontent.com/c3db9783f1c00fe24ac29d19d007b9b9c0bddb24/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f446a716f4a56415734414577354a342e6a7067)
 
 
-An other MCU/MPU target to consider is ARTIK05x, as shown at end of demo,
+It can run on many devices such as regular Linux system but maybe not your favorite MCU
+other MCU/MPU target to consider is ARTIK05x, as shown at end of demo,
 you could try to compare to Arduino, but I wouldn't dare.
-It's running a full featured OS, called Tizen:RT,
+
+ARTIK05x are running full featured OS, called Tizen:RT,
 don't confuse with Linux Based Tizen, this one has a different kernel
-and is targetting lower class architecture.
+and is targeting lower class architecture.
 
 One key feature of Tizen:RT is "native javascript" support, using
 JerryScript and IoT.js runtime.
 
-Because IoT.js try to allign the most to nodejs's design and conventions
+Because IoT.js try to align the most to nodejs's design and conventions
 I was tempted to try to port the Mozilla's webthing-node SDK to
 IoT.js and it worked !
 
-Note that features were removed, and the code has been downgraded to earlier ECMA standards, since the code base was very small that task was done manually to avoid generated overhead using transpiliers such as babel.
+Note that features were removed, a
+nd the code has been downgraded to earlier ECMA standards,
+since the code base was very small that task was done manually
+to avoid generated overhead using transpiliers such as babel.
 
 
 ## USAGE: ##
