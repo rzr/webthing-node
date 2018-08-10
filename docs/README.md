@@ -398,7 +398,7 @@ Like previously explained on Edison, you can also try a blinky example on x86:
 
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
 
-[~[webthing-iotjs-20180621rzr](https://i.vimeocdn.com/video/708774087.jpg?mw=960&mh=540)](https://player.vimeo.com/video/276279690#webthing-iotjs-20180621rzr "webthing-iotjs-20180621rzr")
+[![webthing-iotjs-20180621rzr](https://i.vimeocdn.com/video/708774087.jpg?mw=960&mh=540)](https://player.vimeo.com/video/276279690#webthing-iotjs-20180621rzr "webthing-iotjs-20180621rzr")
 
 
 ### IOTJS ON TIZENRT: ###
