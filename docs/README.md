@@ -2,6 +2,7 @@
 
 * URL: https://github.com/TizenTeam/webthing-node/tree/sandbox/rzr/devel/artik/master/docs
 
+* [README.md](../README.md)
 
 ## STATUS: WORK IN PROGRESS ##
 
