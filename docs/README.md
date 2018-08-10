@@ -4,7 +4,7 @@
 * Support: https://github.com/TizenTeam/webthing-node/issues
 
 
-## DISCLAIMER: ##
+## DISCLAIMER: WORK IN PROGRESS ##
 
 This guide will focus only using iotjs to build webthings.
 
@@ -158,7 +158,7 @@ Test in an other shell:
 {
   "name": "ARTIK710",
   "href": "/",
-  "type": "SDB",
+  "type": "SingleBoardComputer",
   "properties": {
     "BlueLed": {
       "@type": "OnOffProperty",
@@ -195,7 +195,7 @@ Test in an other shell:
       "href": "/properties"
     }
   ],
-  "description": "A web connected ARTIK05x"
+  "description": "A web connected ARTIK710"
 }
 ```
 
