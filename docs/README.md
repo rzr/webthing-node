@@ -1,12 +1,21 @@
 # WEBTHING-IOTJS #
 
 * URL: https://github.com/TizenTeam/webthing-node/tree/sandbox/rzr/devel/artik/master/docs
-* Support: https://github.com/TizenTeam/webthing-node/issues
 
 
 ## STATUS: WORK IN PROGRESS ##
 
-Expected to be presented at MozFest 2018
+This document is still in draft state, but review is always welcome,
+if you try to replicate it and stuck on missing instructions
+I would appreciate that you file issues
+or even better make pull request that insert "TODO: please explain more" in following chapters.
+
+Support is also possible, ask in:
+
+* https://github.com/TizenTeam/webthing-node/issues
+* irc://irc.mozilla.org/#iot
+
+This material is expected to be presented at MozFest 2018:
 
 * https://github.com/MozillaFestival/mozfest-program-2018/issues/690
 
@@ -20,6 +29,7 @@ Many technologies were involved, among them webthing-iotjs (ARTIK's LED at end o
 This Web of Thing demo "world first smart orchid ever" is not that new, I am sure
 but I hope those hints will inspire you to create different projects, let it know.
 
+* https://discourse.mozilla.org/t/send-us-photos-of-your-things-gateway-in-action/26177/
 
 [![web-of-things-agriculture-20180712rzr.webm](https://s-opensource.org/wp-content/uploads/2018/07/web-of-things-agriculture-20180712rzr.gif)](https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm "Video Demo")
 
@@ -270,6 +280,7 @@ time sudo docker-compose up # 17min to build and run
 ```
 
 Expected log:
+
 ```
 Recreating webthingnode_web_1
 Attaching to webthingnode_web_1
@@ -295,8 +306,9 @@ Stopping webthingnode_web_1 ... done
 
 Test in an other shell:
 
-
+```shell
 curl http://localhost:8888 | jq
+```
 
 ```javascript
 {
@@ -343,9 +355,8 @@ curl http://localhost:8888 | jq
 }
 ```
 
-TODO: Fix to support schemas:
-
-* https://iot.mozilla.org/schemas/
+* TODO: Fix to support schemas:
+  * https://iot.mozilla.org/schemas/
 
 
 #### WEBTHING-IOTJS ON RASPBIAN: ####
@@ -375,13 +386,6 @@ Like previously explained on Edison, you can also try a blinky example on x86:
 IoT.js is part of Tizen:RT, but current release is outdated,
 so it needs to be updated:
 
-then you need to Enable this iotjs_startup on boot
-https://github.com/Samsung/TizenRT/pull/1982
-
-Or start on existing "iotjs" configuration for ARTIK:
-
-https://github.com/Samsung/TizenRT/pull/2009
-
 * TODO: Track upstreaming:
   * https://github.com/Samsung/TizenRT/pull/2018
   * https://github.com/TizenTeam/TizenRT
@@ -392,7 +396,13 @@ To rebuild Tizen:RT with IoT.js
 my upstreamed luncher app should be enabled,
 ROMfs enabled, WiFi configured.
 
-And javascripts placed in contents subdir.
+* https://github.com/Samsung/TizenRT/blob/master/docs/HowToUseIoTjs.md
+* https://github.com/Samsung/TizenRT/pull/1982
+
+Or start on existing "iotjs" configuration for ARTIK:
+* https://github.com/Samsung/TizenRT/pull/2009
+
+Finally javascripts should placed in contents subdir.
 
 
 #### WEBTHING-IOTJS ON ARTIK05X: ###
@@ -408,6 +418,10 @@ git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
 make demo
 
 ```
+
+It was tested on ARTIK055s but should be also working on ARTIK053 or ARTIK053s, just overide machine ie:
+
+    make demo machine=artik053
 
 
 ### USING NODEJS: ###
@@ -452,15 +466,13 @@ For the record I used this PiHat, and modified it to plug additional sensor in (
 Note that "generic-sensor-lite" module can be also used on gateway using this adapter already released since mozilla-iot-gateway-0.4:
 
 * https://github.com/rzr/mozilla-iot-generic-sensors-adapter/
-
+* https://github.com/TizenTeam/addon-list
 
 [![flex-hat](https://camo.githubusercontent.com/764a65bf532303ff0bc7f007482fbf90d753f568/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f44686d5038463458554141515348442e6a7067)](https://twitter.com/RzrFreeFr/status/1016001475401658370# "flex-pi-hat-gpio-mod")
 
 
-
 #### IO RESOURCES: ####
 
-* https://github.com/TizenTeam/addon-list
 * https://github.com/TizenTeam/node-blinkt
 * https://github.com/TizenTeam/iotjs-modules
 * https://github.com/rzr/iotjs-async
@@ -573,11 +585,9 @@ Used repository:
 * http://www.iotjs.net/
 * https://www.artik.io/
 * https://github.com/Samsung/TizenRT
-* https://github.com/Samsung/TizenRT/blob/master/docs/HowToUseIoTjs.md
 * https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596/10
 * https://iot.mozilla.org/
 * https://iot.mozilla.org/wot/
-* irc://irc.mozilla.org/#iot
 * https://wiki.tizen.org/User:Pcoval
 * https://s-opensource.org/author/philcovalsamsungcom/
 * https://s-opensource.org/tag/iotjs
