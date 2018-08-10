@@ -431,9 +431,7 @@ TODO: upstream into webthing-node (reusable part)
 
 * https://github.com/TizenTeam/webthing-node/blob/sandbox/rzr/devel/artik/master/example/toggle-gpio-binary-sensor-thing.js
 
-TODO: This part is not ready, as some changes are not merged upstream
-
-* https://github.com/rzr/mozilla-iot-generic-sensors-adapter/
+Demo also feature some I2C sensors, they were using nodejs runtime:
 
 Check supported sensors in this high level wrapper to drivers:
 
@@ -443,6 +441,12 @@ For now I recommend to use either BH1650 or BMP082 modules,
 community implemented drivers,
 which are supported by NPM community,
 since my fixes were upstreamed.
+
+* TODO: port to IoT.js, not ready as some changes are not yet merged upstream
+
+This module can be also used on gateway using this adapter already released since mozilla-iot-gateway-0.4:
+
+* https://github.com/rzr/mozilla-iot-generic-sensors-adapter/
 
 
 #### IO RESOURCES: ####
@@ -458,7 +462,6 @@ since my fixes were upstreamed.
 
 
 ### EXTRA: ARDUINO AND ESP ###
-
 
 Developing webthing on Arduino APIs or compatible platforms
 such as Espressif ESP8266 or ESP32
@@ -541,7 +544,6 @@ Since PWA was supported in Tizen, so
 I should worth a try on updated version.
 
 Used repository:
-
 * https://github.com/rzr/webthings-webapp
 * https://github.com/tizenteam/webthings-webapp
 
