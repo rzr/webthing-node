@@ -40,10 +40,10 @@ but I hope those hints will inspire you to create different projects, let it kno
 
 ## DISCLAIMER: ##
 
-This guide will focus only using iotjs to build webthings.
+This guide will focus mostly on using iotjs to build webthings, but more hints are shared.
 
 Instead of freezing "quick and dirty" demo code.
-I preferred to upstream the most I can
+I preferred to split demo in several smaller independents parts and upstream the most I can
 and then provide support on mainline branches.
 
 Upstreaming can be a slow process,
@@ -548,20 +548,22 @@ For reference code was developed in this repo: (but most of it is upstreamed)
 
 ### EXTRA: ACTIVITY PUB: ###
 
-For the notification service, I relied on W3C Activity Pub
+For the "Smart Orchid" notification service, it's relying on W3C Activity Pub and Mastodon FLOSS.
 
-I made a simple Command line client to the mastodon network,
-https://github.com/rzr/mastodon-lite
+To try IoT.js, I made a simple command line client to the mastodon network, it's also compatible with node,
+check related infos to use and setup account:
 
-If you want to use earlier GNU social instance
-it should work same or be easy to adapt.
-
-Then I implemented a thing:
-
+* https://github.com/rzr/mastodon-lite
 * https://www.npmjs.com/package/mastodon-lite
+
+Then I implemented a thing (works with node or iotjs):
+
 * https://github.com/TizenTeam/webthing-node/blob/sandbox/rzr/devel/artik/master/example/actuator-mastodon.js
 * https://github.com/TizenTeam/webthing-node/blob/sandbox/rzr/devel/artik/master/example/mastodon-thing.js
 
+
+Note, If you want to use earlier GNU social instance
+it should work same or be easy to adapt.
 
 * TODO: Create adapter for gateway
 
