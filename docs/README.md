@@ -13,7 +13,9 @@ Expected to be presented at MozFest 2018
 
 ## DEMO: ##
 
-Recently I shared a video demo that involve many technologies, among them webthing-iotjs (ARTIK's LED at end of video)
+Recently I shared this short video about different webthings working along.
+
+Many technologies were involved, among them webthing-iotjs (ARTIK's LED at end of video)
 
 This Web of Thing demo "world first smart orchid ever" is not that new, I am sure
 but I hope those hints will inspire you to create different projects, let it know.
@@ -50,6 +52,22 @@ It's functional but has some limitations that worth to be known:
 * Actions and Events are also dropped as not critical.
 
 ![ARTIK05x](https://camo.githubusercontent.com/c3db9783f1c00fe24ac29d19d007b9b9c0bddb24/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f446a716f4a56415734414577354a342e6a7067)
+
+
+An other MCU/MPU target to consider is ARTIK05x, as shown at end of demo,
+you could try to compare to Arduino, but I wouldn't dare.
+It's running a full featured OS, called Tizen:RT,
+don't confuse with Linux Based Tizen, this one has a different kernel
+and is targetting lower class architecture.
+
+One key feature of Tizen:RT is "native javascript" support, using
+JerryScript and IoT.js runtime.
+
+Because IoT.js try to allign the most to nodejs's design and conventions
+I was tempted to try to port the Mozilla's webthing-node SDK to
+IoT.js and it worked !
+
+Note that features were removed, and the code has been downgraded to earlier ECMA standards, since the code base was very small that task was done manually to avoid generated overhead using transpiliers such as babel.
 
 
 ## USAGE: ##
@@ -93,7 +111,33 @@ Just install released image on RaspberryPi 2 or 3,
 
 * TODO: document
 
+
 #### MOZILLA IOT GATEWAY ON DOCKER: ####
+
+While developping I made my owndocker file
+
+* TODO upstream
+
+For deeper integration, maybe you should try out 
+upstream's docker images:
+
+* https://github.com/mozilla-iot/gateway-docker
+
+
+```shell
+sudo docker run mozillaiot/gateway:arm
+
+sudo docker run \
+    -d \
+    --rm \
+    --net=host \
+    --name mozilla-iot-gateway \
+    mozillaiot/gateway:arm
+```
+
+On benefit of having docker files in sources, 
+is that project can be built on reference OS,
+and be deployed on any as long as docker is supported.
 
 * TODO: document
 
@@ -122,20 +166,47 @@ sed -e "s/^FROM .*/FROM $image/g" -i Dockerfile
 time $sudo docker-compose up
 ```
 
+Build step can be a bit intensive,
+because some packages like sqlite3 
+are only distribuated as source 
+
+
 * TODO: fix sqlite on node10
   * https://github.com/mapbox/node-sqlite3/issues/994
   * https://github.com/TizenTeam/node-sqlite3
+  * https://github.com/mapbox/node-sqlite3/issues/418
   * https://github.com/mapbox/node-sqlite3/pull/1028
 
 
 #### MOZILLA IOT GATEWAY ON ARTIK710 (TODO) ####
 
+
+ARTIK 5,7 or even 10 should be able to support Mozilla-IoT's gateway
+which was originaly targetting RaspberryPi as reference platform and thus Raspbian OS.
+
+My <a href='https://www.artik.io/modules/artik-710/'>ARTIK710</a> was shipped on Fedora-24 
+(
+<a href='https://s-opensource.org/2017/11/29/building-iotivity-arm-artik-devices/'>
+the same OS I build IoTivity 1.3.1 package for
+</a>
+)
+
 I have myself managed to make the gateway running ARTIK7 (on fedora 24)
 and it should run fine on others (ARTIK5) natively in a Docker container.
+
+
+I managed to rebuild Mozilla's IoT using node TODO,
+a couple of fixes were needed and are already upstreamed <a href='https://github.com/mozilla-iot/gateway/pull/1206'>hardcoded path or environment issues</a>, but didn't land in latest release 0.5.0.
+
+I think that latest ARTIK images switched to Ubuntu, so I will be even easier to migrate from Raspbian as both are debian based.
 
 * TODO : document support
 * https://github.com/TizenTeam/gateway/tree/sandbox/rzr/devel/artik/master
 
+Optionally, If you have the interposer board you can also try out 
+the generic sensor adapter ARM binaries should work too:
+
+* https://s-opensource.org/2018/04/25/mozilla-iot-generic-sensors/
 
 #### MOZILLA IOT ON OTHERS: ####
 
@@ -167,22 +238,24 @@ So for now we'll use Debian in a docker container mounted on external USB disk (
 
 ```shell
 cat /etc/os-release # PRETTY_NAME="Fedora 24 (Twenty Four)"
-sudo sync
-sudo dnf install docker screen time git etckeeper jq
+sudo=sudo # Or configure your sudoers
+$sudo sync
+$sudo dnf install docker screen time git etckeeper jq
 screen # Press "Ctrl+a c" : to open a new terminal
 
-sudo systemctl stop docker
+$sudo systemctl stop docker
 part="/dev/sda1" # TODO: updated if needed
 mnt="/var/lib/docker"
-sudo mkfs.ext4 -L webthings "$part" # TODO: verify $part variable
+$sudo mkfs.ext4 -L webthings "$part" # TODO: verify $part variable
 
-sudo mkdir -p "$mnt"
-sudo mount "$part" "$mnt"
+$sudo mkdir -p "$mnt"
+$sudo mount "$part" "$mnt"
 swap=/dev/sdb1
-sudo mkswap $swap
-sudo swapon $swap
+$sudo mkswap $swap
+$sudo swapon $swap
 free
-sudo systemctl restart docker
+$sudo systemctl restart docker
+$sudo docker version # docker-common-1.10.3-55.gite03ddb8.fc24.armv7hl
 ```
 
 Then build container and start service (500 Mb will be used):
@@ -286,13 +359,18 @@ Just install IoT.js
 See general instructions above
 
 
+https://www.tindie.com/products/anavi/anavi-flex-raspberry-pi-hat-for-iot/
+
+https://github.com/AnaviTechnology/anavi-flex/issues/1#issuecomment-274616910
+
 #### WEBTHING-IOTJS ON DOCKER: ####
 
 * https://hub.docker.com/_/debian/
 
+
 #### WEBTHING-IOTJS ON INTEL EDISON: ###
 
-Check instructions at:
+Like previously explained on Edison, you can also try a blinky example on x86:
 
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
 
@@ -302,11 +380,24 @@ Check instructions at:
 IoT.js is part of Tizen:RT, but current release is outdated,
 so it needs to be updated:
 
-TODO: Track upstreaming:
+then you need to Enable this iotjs_startup on boot
+https://github.com/Samsung/TizenRT/pull/1982
 
-* https://github.com/Samsung/TizenRT/pull/2018
-* https://github.com/TizenTeam/TizenRT
-* https://github.com/TizenTeam/libtuv
+Or start on existing "iotjs" configuration for ARTIK:
+
+https://github.com/Samsung/TizenRT/pull/2009
+
+* TODO: Track upstreaming:
+  * https://github.com/Samsung/TizenRT/pull/2018
+  * https://github.com/TizenTeam/TizenRT
+  * https://github.com/TizenTeam/libtuv
+
+
+To rebuild Tizen:RT with IoT.js 
+my upstreamed luncher app should be enabled,
+ROMfs enabled, WiFi configured.
+
+And javascripts placed in contents subdir.
 
 
 #### WEBTHING-IOTJS ON ARTIK05X: ###
@@ -378,7 +469,6 @@ Developing is pretty straight forward, and it has been covered earlier:
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
 * https://github.com/mozilla-iot/webthing-arduino
 
-
 "Smart Orchid Demo" showed a light controller and arduino moisture sensor:
 
 The RGB Lamp code is upstreamed at:
@@ -392,28 +482,68 @@ it was used to monitor the moisture of the ground of a plant.
 
 Hardware side, I used an Arduino mega with Ethernet Shield
 (<a href='https://www.slideshare.net/SamsungOSG/iotivity-tutorial-prototyping-iot-devices-on-gnulinux/41'>same one in this IoTivity 1.2 "arduino switch" demo</a>)
+
 A moisture sensor is just plugged on analog pin (and +5v GND, the digital pin was not used here, but it can be used for other boards without analog like RaspberryPi and use potentiometer as "hardware threshold").
 
 * TODO: refactor to handle Arduino's WiFi shield too
+
+* TODO: port iotjs to arduino and compare perfs
 
 For reference code was developed in this repo: (but most of it is upstreamed)
 
 * https://github.com/TizenTeam/webthing-esp8266
 
 
-### EXTRA: ACTIVITY PUB ###
+### EXTRA: ACTIVITY PUB: ###
 
-* TODO: Document
-* TODO: Create adapter
+For the notification service, I relied on W3C Activity Pub
+
+I made a simple Command line client to the mastodon network,
+https://github.com/rzr/mastodon-lite
+
+If you want to use earlier GNU social instance
+it should work same or be easy to adapt.
+
+Then I implemented a thing:
 
 * https://www.npmjs.com/package/mastodon-lite
 * https://github.com/TizenTeam/webthing-node/blob/sandbox/rzr/devel/artik/master/example/actuator-mastodon.js
 * https://github.com/TizenTeam/webthing-node/blob/sandbox/rzr/devel/artik/master/example/mastodon-thing.js
 
 
-### EXTRA: WEBAPP ###
+* TODO: Create adapter for gateway
+
+### EXTRA: WEBTHINGS-WEBAPP: ###
+
+For front end developers, can also try this webapp 
+originally designed as Tizen app (wgt)
+* https://s-opensource.org/2018/06/21/webthing-iotjs/
+
+It was tested on Tizen:5 on TM1,
+WiFi needs to be enabled again, 
+it's not trivial but I shared some hints on Tizen's wiki:
+
+* https://wiki.tizen.org/TM1#tizen-5
+
+Some patches are still under review:
+
+* https://review.tizen.org/gerrit/#/c/181349/
+
+Earlier Tizen's version might not work because mozilla's gateway UI
+is expecting recent browsers.
+
+* https://bugs.tizen.org/browse/TRE-1963
+
+Then the application was then "ported" to Android
+for Samsung Internet browser.
+
+Since PWA was supported in Tizen, so
+I should worth a try on updated version.
+
+Used repository:
 
 * https://github.com/rzr/webthings-webapp
+* https://github.com/tizenteam/webthings-webapp
 
 
 ## TODO: ##
