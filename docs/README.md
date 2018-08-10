@@ -223,6 +223,10 @@ the generic sensor adapter ARM binaries should work too:
 
 * https://s-opensource.org/2018/04/25/mozilla-iot-generic-sensors/
 
+More info about this device:
+
+* https://www.artik.io/
+
 
 #### MOZILLA IOT ON OTHERS: ####
 
@@ -364,6 +368,10 @@ curl http://localhost:8888 | jq
 * TODO: Fix to support schemas:
   * https://iot.mozilla.org/schemas/
 
+More info about this device:
+
+* https://www.artik.io/
+
 
 #### WEBTHING-IOTJS ON RASPBIAN: ####
 
@@ -389,10 +397,11 @@ Like previously explained on Edison, you can also try a blinky example on x86:
 
 ### IOTJS ON TIZENRT: ###
 
-IoT.js is part of Tizen:RT
+IoT.js is part of Tizen:RT, check related intructions:
 
-* https://github.com/Samsung/TizenRT
 * https://github.com/Samsung/TizenRT/blob/master/docs/HowToUseIoTjs.md
+* https://github.com/Samsung/iotjs/wiki/Build-for-ARTIK053-TizenRT
+* https://github.com/Samsung/TizenRT
 
 Unformatunately current release is outdated, and webthing-iotjs not supporting it yet,
 so better update IoT.js in Tizen:RT.
@@ -414,6 +423,12 @@ Or start on existing "iotjs" configuration for ARTIK:
 
 Finally javascripts should placed in contents subdir.
 
+More resources about TizenRT:
+
+* https://www.slideshare.net/SamsungOSG/tizen-rt-a-lightweight-rtos-platform-for-lowend-iot-devices
+* https://archive.fosdem.org/2018/schedule/event/tizen_rt/
+* https://source.tizen.org/documentation/tizen-rt/tizen-rt-long-term-goals
+
 
 #### WEBTHING-IOTJS ON ARTIK05X: ###
 
@@ -432,6 +447,10 @@ make demo
 It was tested on ARTIK055s but should be also working on ARTIK053 or ARTIK053s, just overrode machine ie:
 
     make demo machine=artik053
+
+More info about thoses devices:
+
+* https://www.artik.io/
 
 
 ### USING NODEJS: ###
@@ -591,7 +610,6 @@ Used repository:
 ## RESOURCES: ##
 
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
-* https://www.artik.io/
 * https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596/10
 * https://iot.mozilla.org/
 * https://iot.mozilla.org/wot/
@@ -602,7 +620,3 @@ Used repository:
 * https://s-opensource.org/tag/mozilla
 * https://s-opensource.org/category/internet-of-things/
 * https://www.npmjs.com/~rzr
-* https://github.com/Samsung/iotjs/wiki/Build-for-ARTIK053-TizenRT
-* https://archive.fosdem.org/2018/schedule/event/tizen_rt/
-* https://www.slideshare.net/SamsungOSG/tizen-rt-a-lightweight-rtos-platform-for-lowend-iot-devices
-* https://source.tizen.org/documentation/tizen-rt/tizen-rt-long-term-goals
