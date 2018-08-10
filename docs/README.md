@@ -439,6 +439,10 @@ For reference code was developed in this repo: (but most of it is upstreamed)
 * irc://irc.mozilla.org/#iot
 * https://wiki.tizen.org/User:Pcoval
 * https://s-opensource.org/author/philcovalsamsungcom/
+* https://s-opensource.org/tag/iotjs
+* https://s-opensource.org/tag/wot
+* https://s-opensource.org/tag/mozilla
+* https://s-opensource.org/category/internet-of-things/
 * https://www.npmjs.com/~rzr
 * https://github.com/Samsung/iotjs/wiki/Build-for-ARTIK053-TizenRT
 * https://archive.fosdem.org/2018/schedule/event/tizen_rt/
