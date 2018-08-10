@@ -64,9 +64,6 @@ Although it is functional, it has some limitations that worth to be known:
 * Websockets are not implemented yet, while IoT.js recently introduced WS, it's not used yet.
 * Actions and Events are also dropped as not critical.
 
-![ARTIK05x](https://camo.githubusercontent.com/c3db9783f1c00fe24ac29d19d007b9b9c0bddb24/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f446a716f4a56415734414577354a342e6a7067)
-
-
 It can run on many devices such as regular Linux system but maybe not your favorite MCU
 other MCU/MPU target to consider is ARTIK05x, as shown at end of demo,
 you could try to compare to Arduino, but I wouldn't dare.
@@ -86,6 +83,9 @@ Note that features were removed, a
 nd the code has been downgraded to earlier ECMA standards,
 since the code base was very small that task was done manually
 to avoid generated overhead using transpiliers such as babel.
+
+
+![ARTIK05x](https://camo.githubusercontent.com/c3db9783f1c00fe24ac29d19d007b9b9c0bddb24/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f446a716f4a56415734414577354a342e6a7067)
 
 
 ## USAGE: ##
