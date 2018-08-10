@@ -72,9 +72,8 @@ so it should be easy to install on RaspberryPi.
   with several properties of same patch,
   so the gateway should be rebuild until my patch is merged:
 
-* https://github.com/mozilla-iot/gateway/issues/1148
-* https://github.com/mozilla-iot/gateway/pull/1249
-* https://github.com/TizenTeam/node-sqlite3
+  * https://github.com/mozilla-iot/gateway/issues/1148
+  * https://github.com/mozilla-iot/gateway/pull/1249
 
 Once installed, you can check by installing "virtual-adapter" as explained before:
 
@@ -122,12 +121,12 @@ sed -e "s/^FROM .*/FROM $image/g" -i Dockerfile
 time $sudo docker-compose up
 ```
 
-* TODO: fix sqlite
+* TODO: fix sqlite on node10
   * https://github.com/mapbox/node-sqlite3/issues/994
+  * https://github.com/TizenTeam/node-sqlite3
 
 
 #### MOZILLA IOT GATEWAY ON ARTIK710 (TODO) ####
-
 
 I have myself managed to make the gateway running ARTIK7 (on fedora 24)
 and it should run fine on others (ARTIK5) natively in a Docker container.
