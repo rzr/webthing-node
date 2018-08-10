@@ -59,7 +59,7 @@ Webthing-iotjs is a fork of webthing-node adapted for IoT.js runtime.
 * https://github.com/mozilla-iot/webthing-node
 * http://www.iotjs.net/
 
-Althrough it is functional, it has some limitations that worth to be known:
+Although it is functional, it has some limitations that worth to be known:
 
 * MDNS is not supported yet, so no auto discovery of devices so URL should be added from UI.
 * Websockets are not implemented yet, while IoT.js recently introduced WS, it's not used yet.
@@ -128,7 +128,7 @@ Just install released image on RaspberryPi 2 or 3,
 
 #### MOZILLA IOT GATEWAY ON DOCKER: ####
 
-While developping I made my owndocker file
+While developing I made my own docker file
 
 * TODO upstream
 
@@ -182,7 +182,7 @@ time $sudo docker-compose up
 
 Build step can be a bit intensive,
 because some packages like sqlite3 
-are only distribuated as source 
+are only distributed as source 
 
 
 * TODO: fix sqlite on node10
@@ -197,7 +197,7 @@ are only distribuated as source
 * TODO: This part is not ready consider to run on regular desktop or reference hardware (RasPi)
 
 ARTIK 5,7 or even 10 should be able to support Mozilla-IoT's gateway
-which was originaly targetting RaspberryPi as reference platform and thus Raspbian OS.
+which was originally targeting RaspberryPi as reference platform and thus Raspbian OS.
 
 My <a href='https://www.artik.io/modules/artik-710/'>ARTIK710</a> was shipped on Fedora-24 
 (
@@ -213,7 +213,8 @@ and it should run fine on others (ARTIK5) natively in a Docker container.
 I managed to rebuild Mozilla's IoT using node TODO,
 a couple of fixes were needed and are already upstreamed <a href='https://github.com/mozilla-iot/gateway/pull/1206'>hardcoded path or environment issues</a>, but didn't land in latest release 0.5.0.
 
-I think that latest ARTIK images switched to Ubuntu, so I will be even easier to migrate from Raspbian as both are debian based.
+I think that latest ARTIK images switched to Ubuntu,
+so I will be even easier to migrate from Raspbian as both are debian based.
 
 * https://github.com/TizenTeam/gateway/tree/sandbox/rzr/devel/artik/master
 
@@ -222,10 +223,10 @@ the generic sensor adapter ARM binaries should work too:
 
 * https://s-opensource.org/2018/04/25/mozilla-iot-generic-sensors/
 
+
 #### MOZILLA IOT ON OTHERS: ####
 
 I can share more hints later, just ask, tell me more on your setup.
-
 
 
 ### USING IOTJS ON GNU/LINUX: ###
@@ -398,7 +399,7 @@ so it needs to be updated:
 
 
 To rebuild Tizen:RT with IoT.js 
-my upstreamed luncher app should be enabled,
+my upstreamed launcher app should be enabled,
 ROMfs enabled, WiFi configured.
 
 * https://github.com/Samsung/TizenRT/blob/master/docs/HowToUseIoTjs.md
@@ -424,7 +425,7 @@ make demo
 
 ```
 
-It was tested on ARTIK055s but should be also working on ARTIK053 or ARTIK053s, just overide machine ie:
+It was tested on ARTIK055s but should be also working on ARTIK053 or ARTIK053s, just overrode machine ie:
 
     make demo machine=artik053
 
@@ -434,8 +435,7 @@ It was tested on ARTIK055s but should be also working on ARTIK053 or ARTIK053s, 
 For debugging purposes, code is also compatible with nodejs but with stubbed IO functions,
 in longer term I plan to align iotjs API for IO modules for node.
 
-TODO: upstream into webthing-node (reusable part)
-
+* TODO: upstream into webthing-node (reusable part)
 * https://github.com/TizenTeam/GpiO
 
 
@@ -444,7 +444,7 @@ TODO: upstream into webthing-node (reusable part)
 Note: It's possible to use I2C sensors on IoT.js but since some sensors changes are not yet upstreamed,
 this chapter will explain using node.
 
-"Smart Orchid Demo" showed a clapsensor, which is bascially just a GPIO input of KY-037's digital pin
+"Smart Orchid Demo" showed a clapsensor, which is basically just a GPIO input of KY-037's digital pin
 
 * https://github.com/TizenTeam/webthing-node/blob/sandbox/rzr/devel/artik/master/example/toggle-gpio-binary-sensor-thing.js
 
