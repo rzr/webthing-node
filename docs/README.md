@@ -450,7 +450,7 @@ For the record I used this PiHat, and modified it to plug additional sensor in (
 * https://www.tindie.com/products/anavi/anavi-flex-raspberry-pi-hat-for-iot/
 * https://github.com/AnaviTechnology/anavi-flex/issues/1#issuecomment-274616910
 
-![flex-hat https://twitter.com/RzrFreeFr/status/1016001475401658370](https://camo.githubusercontent.com/764a65bf532303ff0bc7f007482fbf90d753f568/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f44686d5038463458554141515348442e6a7067)
+![flex-hat](https://camo.githubusercontent.com/764a65bf532303ff0bc7f007482fbf90d753f568/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f44686d5038463458554141515348442e6a7067)(https://twitter.com/RzrFreeFr/status/1016001475401658370# "flex-hat-gpio-mod")
 
 
 #### IO RESOURCES: ####
