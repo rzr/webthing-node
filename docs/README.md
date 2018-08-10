@@ -13,7 +13,7 @@ or even better make pull request (just edit in github) that insert TODO lines" i
 
 Support is also possible, ask in:
 
-* https://github.com/TizenTeam/webthing-node/issues
+* https://github.com/rzr/webthing-iotjs
 * irc://irc.mozilla.org/#iot
 
 This material is expected to be presented at MozFest 2018:
@@ -167,11 +167,17 @@ sudo docker run \
     --net=host \
     --name mozilla-iot-gateway \
     mozillaiot/gateway:arm
+```
 
+* TODO: currently broken I am unstreaming fixes:
 
+```
+sudo=sudo
+project=gateway-docker
+url=https://github.com/tizenteam/gateway-docker
 branch=sandbox/rzr/devel/mine/master
-git clone --depth 1 https://github.com/tizenteam/gateway-docker ; cd gateway-docker
-$sudo docker build .
+git clone --depth 1 -b $branch $url ; cd $project
+time $sudo docker-compose up
 ```
 
 * http://artik.local:8080
