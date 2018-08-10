@@ -123,7 +123,7 @@ time $sudo docker-compose up
 ```
 
 * TODO: fix sqlite
-** https://github.com/mapbox/node-sqlite3/issues/994
+  * https://github.com/mapbox/node-sqlite3/issues/994
 
 
 #### MOZILLA IOT GATEWAY ON ARTIK710 (TODO) ####
