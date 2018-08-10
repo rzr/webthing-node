@@ -13,15 +13,15 @@ Expected to be presented at MozFest 2018
 
 ## DEMO: ##
 
-Recently I shared a video demo that involve many technologies, among them webthing-iotjs (ARTIK's LED at end of video) :
+Recently I shared a video demo that involve many technologies, among them webthing-iotjs (ARTIK's LED at end of video)
+
+This Web of Thing demo "world first smart orchid ever" is not that new, I am sure
+but I hope those hints will inspire you to create different projects, let it know.
+
 
 [![web-of-things-agriculture-20180712rzr.webm](https://s-opensource.org/wp-content/uploads/2018/07/web-of-things-agriculture-20180712rzr.gif)](https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm "Video Demo")
 
 * https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm
-
-This Web of Thing demo "world first smart orchid ever" is not that new, I am sure.
-
-I hope those hints will inspire you to create different projects, let me know
 
 
 ## DISCLAIMER ##
