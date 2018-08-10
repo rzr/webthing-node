@@ -68,7 +68,7 @@ See next chapters for details.
 Since Mozilla Gateway 0.5 has been just released,
 so it should be easy to install on RaspberryPi.
 
-* TODO: There is bug in current release,
+* TODO: There is bug in current (or all previous) release 
   with several properties of same patch,
   so the gateway should be rebuild until my patch is merged:
 
