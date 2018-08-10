@@ -34,7 +34,7 @@ and then provide support on mainline branches.
 
 Upstreaming can be a slow process,
 so I will be also share some development branches,
-but they are expected to move, 
+but they are expected to move,
 since I am continuously catching up upstream.
 
 
@@ -91,11 +91,11 @@ Just install released image on RaspberryPi 2 or 3,
 #### MOZILLA IOT GATEWAY ON GNU/LINUX: ####
 
 
-* TODO: documment
+* TODO: document
 
 #### MOZILLA IOT GATEWAY ON DOCKER: ####
 
-* TODO: documment
+* TODO: document
 
 
 ```bash
@@ -106,7 +106,7 @@ branch="sandbox/rzr/devel/artik/master"
 git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
 image="debian:latest"
 sed -e "s/^FROM .*/FROM $image/g" -i Dockerfile
-time $sudo docker-compose up 
+time $sudo docker-compose up
 ```
 
 #### MOZILLA IOT GATEWAY ON DOCKER ARMv7 (TODO) ####
@@ -144,14 +144,14 @@ I can share more hints later, just ask, tell me more on your setup.
 
 ### USING IOTJS ON GNU/LINUX: ###
 
-Only snapshot version if currently supported, 
+Only snapshot version if currently supported,
 if using GNU/Linux rebuild it from scratch or install snapshot debian packages:
 
 
 #### IOTJS ON DEBIAN: ####
 
 Even if iotjs-1.0 landed in debian,
-we'll use a snapshot version 
+we'll use a snapshot version
 (<a href='https://github.com/Samsung/iotjs/pull/1400'>to enable all features in full profile</a>)
 
 * https://packages.qa.debian.org/i/iotjs.html
@@ -223,50 +223,50 @@ Stopping webthingnode_web_1 ... done
 Test in an other shell:
 
 
-    curl http://localhost:8888 | jq
+curl http://localhost:8888 | jq
 
 ```javascript
 {
-  "name": "ARTIK710",
-  "href": "/",
-  "type": "SingleBoardComputer",
-  "properties": {
-    "BlueLed": {
-      "@type": "OnOffProperty",
-      "label": "On/Off: BlueLed",
-      "type": "boolean",
-      "description": "Blue LED on ARTIK710 interposer board (on GPIO38)",
-      "href": "/properties/BlueLed"
-    },
-    "RedLed": {
-      "@type": "OnOffProperty",
-      "label": "On/Off: RedLed",
-      "type": "boolean",
-      "description": "Red LED on ARTIK710 interposer board (on GPIO28)",
-      "href": "/properties/RedLed"
-    },
-    "SW403": {
-      "@type": "BooleanProperty",
-      "label": "On/Off: SW403",
-      "type": "boolean",
-      "description": "Up Button: Nearest board edge, next to red LED (on GPIO30)",
-      "href": "/properties/SW403"
-    },
-    "SW404": {
-      "@type": "BooleanProperty",
-      "label": "On/Off: SW404",
-      "type": "boolean",
-      "description": "Down Button: Next to blue LED (on GPIO32)",
-      "href": "/properties/SW404"
-    }
-  },
-  "links": [
-    {
-      "rel": "properties",
-      "href": "/properties"
-    }
-  ],
-  "description": "A web connected ARTIK710"
+"name": "ARTIK710",
+"href": "/",
+"type": "SingleBoardComputer",
+"properties": {
+"BlueLed": {
+"@type": "OnOffProperty",
+"label": "On/Off: BlueLed",
+"type": "boolean",
+"description": "Blue LED on ARTIK710 interposer board (on GPIO38)",
+"href": "/properties/BlueLed"
+},
+"RedLed": {
+"@type": "OnOffProperty",
+"label": "On/Off: RedLed",
+"type": "boolean",
+"description": "Red LED on ARTIK710 interposer board (on GPIO28)",
+"href": "/properties/RedLed"
+},
+"SW403": {
+"@type": "BooleanProperty",
+"label": "On/Off: SW403",
+"type": "boolean",
+"description": "Up Button: Nearest board edge, next to red LED (on GPIO30)",
+"href": "/properties/SW403"
+},
+"SW404": {
+"@type": "BooleanProperty",
+"label": "On/Off: SW404",
+"type": "boolean",
+"description": "Down Button: Next to blue LED (on GPIO32)",
+"href": "/properties/SW404"
+}
+},
+"links": [
+{
+"rel": "properties",
+"href": "/properties"
+}
+],
+"description": "A web connected ARTIK710"
 }
 ```
 
@@ -298,7 +298,7 @@ Check instructions at:
 
 ### IOTJS ON TIZENRT: ###
 
-IoT.js is part of Tizen:RT, but current release is outdated, 
+IoT.js is part of Tizen:RT, but current release is outdated,
 so it needs to be updated:
 
 TODO: Track upstreaming:
@@ -348,8 +348,8 @@ Check supported sensors in this high level wrapper to drivers:
 * https://github.com/rzr/generic-sensors-lite
 
 For now I recommend to use either BH1650 or BMP082 modules,
-community implemented drivers, 
-which are supported by NPM community, 
+community implemented drivers,
+which are supported by NPM community,
 since my fixes were upstreamed.
 
 
@@ -371,7 +371,7 @@ since my fixes were upstreamed.
 Developing webthing on Arduino APIs or compatible platforms
 such as Espressif ESP8266 or ESP32
 
-Once your have setup build tool, 
+Once your have setup build tool,
 Developing is pretty straight forward, and it has been covered earlier:
 
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
@@ -389,8 +389,8 @@ it was used to monitor the moisture of the ground of a plant.
 
 * https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/LevelSensor
 
-Hardware side, I used an Arduino mega with Ethernet Shield 
-(<a href='https://www.slideshare.net/SamsungOSG/iotivity-tutorial-prototyping-iot-devices-on-gnulinux/41'>same one in this IoTivity 1.2 "arduino switch" demo</a>) 
+Hardware side, I used an Arduino mega with Ethernet Shield
+(<a href='https://www.slideshare.net/SamsungOSG/iotivity-tutorial-prototyping-iot-devices-on-gnulinux/41'>same one in this IoTivity 1.2 "arduino switch" demo</a>)
 A moisture sensor is just plugged on analog pin (and +5v GND, the digital pin was not used here, but it can be used for other boards without analog like RaspberryPi and use potentiometer as "hardware threshold").
 
 * TODO: refactor to handle Arduino's WiFi shield too
