@@ -79,6 +79,11 @@ if using GNU/Linux rebuild it from scratch or install snapshot debian packages:
 
 #### ON DEBIAN: ####
 
+Even if iotjs-1.0 landed in debian,
+we'll use a snapshot version 
+to (<a href='https://github.com/Samsung/iotjs/pull/1400'>enable all features in full profile</a>)
+
+* https://packages.qa.debian.org/i/iotjs.html
 * https://build.opensuse.org/package/show/home:rzrfreefr:snapshot/iotjs
 
 
@@ -88,7 +93,7 @@ Several OS are supported on this device,
 but for now we'll use Debian in a docker container mounted on external USB disk (4GB) and an other for swap
 
 ```
-sudo dnf install docker screen
+sudo dnf install docker screen time
 screen # Press "Ctrl+a c" : to open a new terminal
 sudo systemctl stop docker
 part="/dev/sda1" # TODO: updated if needed
@@ -102,15 +107,16 @@ sudo swapon $swap
 free
 sudo systemctl restart docker
 ```
-Then build container and start service:
+Then build container and start service (500 Mb will be used):
 
 ```
-url=https://github.com/tizenteam/webthing-node
+project=webthing-node
+url=https://github.com/tizenteam/${project}
 branch=sandbox/rzr/devel/iotjs/master
-git clone --recursive --depth 1 -b $branch $url
-grep '^FROM ' Dockerfile # Should be arm32v7/debian not debian:latest change it 
-sudo docker-compose build
-sudo docker-compose up
+git clone --recursive --depth 1 -b $branch $url ; cd $project
+image=arm32v7/debian
+sed -e "s|^FROM .*|FROM $image|g" -i Dockerfile
+time sudo docker-compose up
 ```
 
 Expected log:
@@ -140,8 +146,50 @@ Stopping webthingnode_web_1 ... done
 Test in an other shell:
 
 ```
-curl http://localhost:8888
-{"name":"ARTIK710","href":"/","type":"SDB","properties":{"BlueLed":{"@type":"OnOffProperty","label":"On/Off: BlueLed","type":"boolean","description":"Blue LED on ARTIK710 interposer board (on GPIO38)","href":"/properties/BlueLed"},"RedLed":{"@type":"OnOffProperty","label":"On/Off: RedLed","type":"boolean","description":"Red LED on ARTIK710 interposer board (on GPIO28)","href":"/properties/RedLed"},"SW403":{"@type":"BooleanProperty","label":"On/Off: SW403","type":"boolean","description":"Up Button: Nearest board edge, next to red LED (on GPIO30)","href":"/properties/SW403"},"SW404":{"@type":"BooleanProperty","label":"On/Off: SW404","type":"boolean","description":"Down Button: Next to blue LED (on GPIO32)","href":"/properties/SW404"}},"links":[{"rel":"properties","href":"/properties"}],"description":"A web connected ARTIK05x"}b
+curl http://localhost:8888 | jq
+
+{
+  "name": "ARTIK710",
+  "href": "/",
+  "type": "SDB",
+  "properties": {
+    "BlueLed": {
+      "@type": "OnOffProperty",
+      "label": "On/Off: BlueLed",
+      "type": "boolean",
+      "description": "Blue LED on ARTIK710 interposer board (on GPIO38)",
+      "href": "/properties/BlueLed"
+    },
+    "RedLed": {
+      "@type": "OnOffProperty",
+      "label": "On/Off: RedLed",
+      "type": "boolean",
+      "description": "Red LED on ARTIK710 interposer board (on GPIO28)",
+      "href": "/properties/RedLed"
+    },
+    "SW403": {
+      "@type": "BooleanProperty",
+      "label": "On/Off: SW403",
+      "type": "boolean",
+      "description": "Up Button: Nearest board edge, next to red LED (on GPIO30)",
+      "href": "/properties/SW403"
+    },
+    "SW404": {
+      "@type": "BooleanProperty",
+      "label": "On/Off: SW404",
+      "type": "boolean",
+      "description": "Down Button: Next to blue LED (on GPIO32)",
+      "href": "/properties/SW404"
+    }
+  },
+  "links": [
+    {
+      "rel": "properties",
+      "href": "/properties"
+    }
+  ],
+  "description": "A web connected ARTIK05x"
+}
 ```
 
 
@@ -163,6 +211,7 @@ IoT.js is part of Tizen:RT, but current release is oudated,
 so it needs to be updated:
 
 * https://github.com/Samsung/TizenRT/pull/2018
+
 
 #### ON ARTIK05X: ###
 
@@ -241,6 +290,7 @@ TODO: Create adapter
 
 * https://github.com/rzr/webthings-webapp
 
+
 ## DEMO: ##
 
 This Web of Thing demo "world first smart orchid ever" is not that new, I am sure
@@ -248,6 +298,15 @@ This Web of Thing demo "world first smart orchid ever" is not that new, I am sur
 [![web-of-things-agriculture-20180712rzr.webm](https://s-opensource.org/wp-content/uploads/2018/07/web-of-things-agriculture-20180712rzr.gif)](https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm "Video Demo")
 
 * https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm
+
+
+## TODO: ##
+
+* Upstream most I can to webthing-node
+* Rename webthing-node to webthing-iotjs
+* Transpile webthing-node for IoT.js (using babel?)
+* Support Tizen
+
 
 ## RESOURCES: ##
 
