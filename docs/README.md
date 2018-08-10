@@ -69,7 +69,10 @@ just install image and eventually install some adapters as explained before:
 * https://s-opensource.org/wp-content/uploads/2018/04/virtual-things-1024x795.png
 
 * TODO: There is bug with several properties of same patch so the gateway should be rebuild until my patch is merged:
+  * https://github.com/mozilla-iot/gateway/issues/1148
   * https://github.com/mozilla-iot/gateway/pull/1249
+
+![ARTIK05x](https://camo.githubusercontent.com/c3db9783f1c00fe24ac29d19d007b9b9c0bddb24/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f446a716f4a56415734414577354a342e6a7067)
 
 
 ### USING IOTJS ON GNU/LINUX: ###
