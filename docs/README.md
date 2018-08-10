@@ -6,35 +6,48 @@
 
 ## STATUS: WORK IN PROGRESS ##
 
-Expected to be presented at MozFest
+Expected to be presented at MozFest 2018
 
 * https://github.com/MozillaFestival/mozfest-program-2018/issues/690
+
+
+## DEMO: ##
+
+Recently I shared a video demo that involve many technologies, among them webthing-iotjs (ARTIK's LED at end of video) :
+
+[![web-of-things-agriculture-20180712rzr.webm](https://s-opensource.org/wp-content/uploads/2018/07/web-of-things-agriculture-20180712rzr.gif)](https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm "Video Demo")
+
+* https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm
+
+This Web of Thing demo "world first smart orchid ever" is not that new, I am sure.
+
+I hope those hints will inspire you to create different projects, let me know
+
 
 ## DISCLAIMER ##
 
 This guide will focus only using iotjs to build webthings.
 
 Instead of freezing "quick and dirty" demo code.
-I prefered to upstream the most I can
+I preferred to upstream the most I can
 and then provide support on mainline branches.
 
 Upstreaming can be a slow process,
-so I will be also share some developement branches,
+so I will be also share some development branches,
 but they are expected to move, 
 since I am continuously catching up upstream.
 
-I hope those hints will inspire you to create different projects, let me know
 
 
 ## INTRODUCTION: ##
 
 Webthing-iotjs is a fork of webthing-node adapted for IoT.js runtime.
 
-It's functionnal but has some limitations that worth to be known:
+It's functional but has some limitations that worth to be known:
 
 * MDNS is not supported yet, so no auto discovery of devices
-* Websockets are not implemented yet, while IoT.js rencently introduced ws, it's not used here.
-* Actions and Events are also droped as not critical.
+* Websockets are not implemented yet, while IoT.js recently introduced WS, it's not used yet.
+* Actions and Events are also drooped as not critical.
 
 ![ARTIK05x](https://camo.githubusercontent.com/c3db9783f1c00fe24ac29d19d007b9b9c0bddb24/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f446a716f4a56415734414577354a342e6a7067)
 
@@ -44,13 +57,13 @@ It's functionnal but has some limitations that worth to be known:
 * Setup gateway as explained at: https://iot.mozilla.org/gateway/
 * Add thing URL adapter
 * Deploy iotjs on supported devices
-* Run example on device
-* Add thing by URL
+* Run webthing example on target device
+* Add thing by URL from gateway's UI.
 
-See notes for details
+See next chapters for details.
 
 
-### PRERIQUISTE: SETUP GATWEAY ###
+### PREREQUISITE: SETUP MOZILLA IOT GATEWAY ###
 
 Since Mozilla Gateway 0.5 has been just released,
 so it should be easy to install on RaspberryPi.
@@ -70,32 +83,32 @@ Once installed, you can check by installing "virtual-adapter" as explained befor
 ![virtual-things](https://s-opensource.org/wp-content/uploads/2018/04/virtual-things-1024x795.png)
 
 
-#### RASPBIAN ####
+#### MOZILLA IOT GATEWAY ON RASPBERRYPI (RASPBIAN): ####
 
 Just install released image on RaspberryPi 2 or 3,
 
 
-#### GNU/LINUX ####
+#### MOZILLA IOT GATEWAY ON GNU/LINUX: ####
 
 
 * TODO: documment
 
-#### DOCKER ####
+#### MOZILLA IOT GATEWAY ON DOCKER: ####
 
 * TODO: documment
 
 
-#### ARTIK710 ####
+#### MOZILLA IOT GATEWAY ON ARTIK710: ####
 
 
 I have myself managed to make the gateway running ARTIK7 (on fedora 24)
-and it should run fine on others ARTIK4 natively or in a Docker container,
+and it should run fine on others ARTIK4 naively or in a Docker container,
 
 * TODO : document support
 * https://github.com/TizenTeam/gateway/tree/sandbox/rzr/devel/artik/master
 
 
-#### OTHERS ####
+#### MOZILLA IOT ON OTHERS: ####
 
 I can share more hints later, just ask, tell me more on your setup.
 
@@ -107,7 +120,7 @@ Only snapshot version if currently supported,
 if using GNU/Linux rebuild it from scratch or install snapshot debian packages:
 
 
-#### ON DEBIAN: ####
+#### IOTJS ON DEBIAN: ####
 
 Even if iotjs-1.0 landed in debian,
 we'll use a snapshot version 
@@ -117,7 +130,7 @@ we'll use a snapshot version
 * https://build.opensuse.org/package/show/home:rzrfreefr:snapshot/iotjs
 
 
-#### ON ARTIK710: ####
+#### IOTJS ON ARTIK710: ####
 
 Several OS are supported on this device, mine was on Fedora-24, now support moved to Ubuntu,
 some might also use Tizen too,
@@ -229,31 +242,37 @@ Test in an other shell:
 }
 ```
 
-TODO: Fix to support shemas
+TODO: Fix to support schemas:
 
 * https://iot.mozilla.org/schemas/
 
 
-#### ON RASPBIAN: ####
+#### IOTJS ON RASPBIAN: ####
 
 * https://s-opensource.org/2018/03/13/using-iotjs-raspberrypi0/
 * https://dl.bintray.com/rzr/raspbian-9-armhf/
 
 
-#### ON DOCKER: ####
+#### IOTJS ON DOCKER: ####
 
 * https://hub.docker.com/_/debian/
+
+#### IOTJS ON INTEL EDISON: ###
+
+Check instructions at:
+
+* https://s-opensource.org/2018/06/21/webthing-iotjs/
 
 
 ### USING TIZENRT: ###
 
-IoT.js is part of Tizen:RT, but current release is oudated, 
+IoT.js is part of Tizen:RT, but current release is outdated, 
 so it needs to be updated:
 
 * https://github.com/Samsung/TizenRT/pull/2018
 
 
-#### ON ARTIK05X: ###
+#### IOTJS ON ARTIK05X: ###
 
 I made some script helpers to rebuild it all with a single make command,
 this work is still in progress.
@@ -267,14 +286,16 @@ make demo
 
 ```
 
+
 ### USING NODEJS: ###
 
-For debuging purposes, code is also compatible with nodejs but with stubbed IO function,
+For debugging purposes, code is also compatible with nodejs but with stubbed IO functions,
 in longer term I plan to align iotjs API for IO modules for node.
 
 TODO: upstream into webthing-node (reusable part)
 
 * https://github.com/TizenTeam/GpiO
+
 
 ### EXTRA: USING SENSORS AND ACTUATORS: ###
 
@@ -288,11 +309,11 @@ Check supported sensors in this high level wrapper to drivers:
 
 For now I recommend to use either BH1650 or BMP082 modules,
 community implemented drivers, 
-which are suported by NPM community, 
+which are supported by NPM community, 
 since my fixes were upstreamed.
 
 
-#### Resources: ####
+#### IO RESOURCES: ####
 
 * https://github.com/TizenTeam/addon-list
 * https://github.com/TizenTeam/node-blinkt
@@ -306,7 +327,7 @@ since my fixes were upstreamed.
 
 ### EXTRA: ARDUINO AND ESP ###
 
-Developing webthing on ardunino or compatible platforms
+Developing webthing on Arduino APIs or compatible platforms
 such as Espressif ESP8266 or ESP32
 
 Once your have setup build tool, 
@@ -319,14 +340,14 @@ The RGB Lamp code is upstreamed at:
 
 * https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/RGBLamp
 
-Since I shared a slightly more adavanced example that handle ADC port,
+Since I shared a slightly more advanced example that handle ADC port,
 it was used to monitor the moisture of the ground of a plant.
 
 Hardware side, I used an Arduino mega with Ethernet Shield 
 (<a href='https://www.slideshare.net/SamsungOSG/iotivity-tutorial-prototyping-iot-devices-on-gnulinux/41'>same one in this IoTivity 1.2 "arduino switch" demo</a>) 
-A moisture sensor is just plugged on analog pin (and +5v GND, the digital pin was not used here, but it can be used for other boards without analog like RaspberryPi and use potentientiomer as "hardware threshold").
+A moisture sensor is just plugged on analog pin (and +5v GND, the digital pin was not used here, but it can be used for other boards without analog like RaspberryPi and use potentiometer as "hardware threshold").
 
-Check code and instructions upsteam:
+Check code and instructions upstream:
 
 * https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/LevelSensor
 * https://github.com/TizenTeam/libtuv
@@ -345,15 +366,6 @@ TODO: Create adapter
 * https://github.com/rzr/webthings-webapp
 
 
-## DEMO: ##
-
-This Web of Thing demo "world first smart orchid ever" is not that new, I am sure
-
-[![web-of-things-agriculture-20180712rzr.webm](https://s-opensource.org/wp-content/uploads/2018/07/web-of-things-agriculture-20180712rzr.gif)](https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm "Video Demo")
-
-* https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm
-
-
 ## TODO: ##
 
 * Fix Things description
@@ -366,12 +378,12 @@ This Web of Thing demo "world first smart orchid ever" is not that new, I am sur
 
 ## RESOURCES: ##
 
+* https://s-opensource.org/2018/06/21/webthing-iotjs/
 * http://www.iotjs.net/
 * https://www.artik.io/
 * https://github.com/Samsung/TizenRT
 * https://github.com/Samsung/TizenRT/blob/master/docs/HowToUseIoTjs.md
 * https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596/10
-* https://s-opensource.org/2018/06/21/webthing-iotjs/
 * https://iot.mozilla.org/
 * https://iot.mozilla.org/wot/
 * irc://irc.mozilla.org/#iot
