@@ -392,7 +392,7 @@ More info about this device:
 
 * https://www.artik.io/
 
-[![artik710.png](https://pbs.twimg.com/media/DkQ3b9MXsAAA3hu.jpg])(https://twitter.com/RzrFreeFr/status/1028008260253745152#artik710.png "#ARTIK710 WebThing")
+[![artik710.png](https://pbs.twimg.com/media/DkQ3b9MXsAAA3hu.jpg)](https://twitter.com/RzrFreeFr/status/1028008260253745152#artik710.png "#ARTIK710 WebThing")
 
 
 #### WEBTHING-IOTJS ON RASPBIAN: ####
