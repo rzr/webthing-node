@@ -154,7 +154,10 @@ upstream's docker images:
 
 * https://hub.docker.com/r/mozillaiot/gateway/
 * https://github.com/mozilla-iot/gateway-docker
-* https://github.com/mozilla-iot/gateway-docker/pull/9
+
+
+* TODO: image is currently broken, I have upstreamed fixes
+  * https://github.com/mozilla-iot/gateway-docker/pull/9
 
 
 ```shell
@@ -169,16 +172,17 @@ sudo docker run \
     mozillaiot/gateway:arm
 ```
 
-* TODO: currently broken I am unstreaming fixes:
+So rebuild from my branch:
 
 ```
-sudo=sudo
-project=gateway-docker
-url=https://github.com/tizenteam/gateway-docker
-branch=sandbox/rzr/devel/mine/master
-git clone --depth 1 -b $branch $url ; cd $project
+sudo="sudo"
+project="gateway-docker"
+url="https://github.com/tizenteam/gateway-docker"
+branch="sandbox/rzr/review/master"
+git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
 time $sudo docker-compose up
 ```
+
 
 * http://artik.local:8080
 * TODO check and confirm it is working as explained
@@ -263,6 +267,7 @@ So for now we'll use Debian in a docker container mounted on external USB disk (
 cat /etc/os-release # PRETTY_NAME="Fedora 24 (Twenty Four)"
 sudo=sudo # Or configure your sudoers
 $sudo sync
+
 $sudo dnf install docker docker-compose screen time git etckeeper jq
 screen # Press "Ctrl+a c" : to open a new terminal
 
