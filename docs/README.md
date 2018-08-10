@@ -258,7 +258,7 @@ so it needs to be updated:
 I made some script helpers to rebuild it all with a single make command,
 this work is still in progress.
 
-```sh
+```shell
 project="tizenrt"
 url="https://github.com/tizenteam/tizenrt"
 branch="sandbox/rzr/devel/webthing/master"
