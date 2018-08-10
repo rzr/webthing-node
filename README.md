@@ -1,5 +1,9 @@
 # WEBTHING-IOTJS #
 
+## STATUS: IN PROGRESS ##
+
+## HOWTO ##
+
 Please see webthing-iotjs guide
 
 * [docs/README.md](docs/README.md)
