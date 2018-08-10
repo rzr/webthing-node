@@ -180,6 +180,7 @@ are only distribuated as source
 
 #### MOZILLA IOT GATEWAY ON ARTIK710 (TODO) ####
 
+* TODO: This part is not ready consider to run on regular desktop or reference hardware (RasPi)
 
 ARTIK 5,7 or even 10 should be able to support Mozilla-IoT's gateway
 which was originaly targetting RaspberryPi as reference platform and thus Raspbian OS.
@@ -200,7 +201,6 @@ a couple of fixes were needed and are already upstreamed <a href='https://github
 
 I think that latest ARTIK images switched to Ubuntu, so I will be even easier to migrate from Raspbian as both are debian based.
 
-* TODO : document support
 * https://github.com/TizenTeam/gateway/tree/sandbox/rzr/devel/artik/master
 
 Optionally, If you have the interposer board you can also try out 
@@ -356,12 +356,8 @@ Just install IoT.js
 * https://s-opensource.org/2018/03/13/using-iotjs-raspberrypi0/
 * https://dl.bintray.com/rzr/raspbian-9-armhf/
 
-See general instructions above
+See general instructions above.
 
-
-https://www.tindie.com/products/anavi/anavi-flex-raspberry-pi-hat-for-iot/
-
-https://github.com/AnaviTechnology/anavi-flex/issues/1#issuecomment-274616910
 
 #### WEBTHING-IOTJS ON DOCKER: ####
 
@@ -449,6 +445,14 @@ This module can be also used on gateway using this adapter already released sinc
 * https://github.com/rzr/mozilla-iot-generic-sensors-adapter/
 
 
+For the record I used this PiHat, and modified it to plug additional sensor in (clap):
+
+* https://www.tindie.com/products/anavi/anavi-flex-raspberry-pi-hat-for-iot/
+* https://github.com/AnaviTechnology/anavi-flex/issues/1#issuecomment-274616910
+
+![flex-hat](https://pbs.twimg.com/media/DhmP8F4XUAAQSHD.jpg)
+
+
 #### IO RESOURCES: ####
 
 * https://github.com/TizenTeam/addon-list
@@ -461,7 +465,7 @@ This module can be also used on gateway using this adapter already released sinc
 * https://github.com/TizenTeam/gateway
 
 
-### EXTRA: ARDUINO AND ESP ###
+### EXTRA: ARDUINO AND ESP: ###
 
 Developing webthing on Arduino APIs or compatible platforms
 such as Espressif ESP8266 or ESP32
