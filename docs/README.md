@@ -75,7 +75,7 @@ and is targeting lower class architecture.
 One key feature of Tizen:RT is "native javascript" support, using
 JerryScript and IoT.js runtime.
 
-Because IoT.js try to align the most to nodejs's design and conventions
+Because IoT.js tries to align the most to nodejs's design and conventions
 I was tempted to try to port the Mozilla's webthing-node SDK to
 IoT.js and it worked !
 
