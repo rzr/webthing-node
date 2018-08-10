@@ -128,9 +128,15 @@ Just install released image on RaspberryPi 2 or 3,
 
 #### MOZILLA IOT GATEWAY ON DOCKER: ####
 
-While developing I made my own docker file
+While developing I made my own docker file:
 
-* TODO upstream
+* [Dockerfile](/../Dockerfile)
+
+    $sudo docker-compose up
+
+On benefit of having docker files in sources, 
+is that project can be built on reference OS,
+and be deployed on any as long as docker is supported.
 
 For deeper integration, maybe you should try out 
 upstream's docker images:
@@ -148,10 +154,6 @@ sudo docker run \
     --name mozilla-iot-gateway \
     mozillaiot/gateway:arm
 ```
-
-On benefit of having docker files in sources, 
-is that project can be built on reference OS,
-and be deployed on any as long as docker is supported.
 
 * TODO: document
 
