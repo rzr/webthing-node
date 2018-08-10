@@ -1,15 +1,13 @@
 # WEBTHING-IOTJS #
 
-* URL: https://github.com/TizenTeam/webthing-node/tree/sandbox/rzr/devel/artik/master/docs
-
-* [README.md](./README.md)
+* URL: https://github.com/rzr/webthing-iotjs
 
 ## STATUS: WORK IN PROGRESS ##
 
 This document is still in draft state, but review is always welcome,
 if you try to replicate it and stuck on missing instructions
 I would appreciate that you file issues
-or even better make pull request that insert TODO lines" in following chapters, like:
+or even better make pull request (just edit in github) that insert TODO lines" in following chapters, like:
 
 * TODO: please explain more and then remove this TODO line
 
@@ -133,32 +131,7 @@ While developing I made my own docker file:
 
 * [Dockerfile](../Dockerfile)
 
-```shell
-$sudo docker-compose up
-```
-
-On benefit of having docker files in sources, 
-is that project can be built on reference OS,
-and be deployed on any as long as docker is supported.
-
-For deeper integration, maybe you should try out 
-upstream's docker images:
-
-* https://github.com/mozilla-iot/gateway-docker
-
-
-```shell
-sudo docker run mozillaiot/gateway:arm
-
-sudo docker run \
-    -d \
-    --rm \
-    --net=host \
-    --name mozilla-iot-gateway \
-    mozillaiot/gateway:arm
-```
-
-* TODO: document
+Usage is straightfoward, install docker and run from source
 
 
 ```bash
@@ -172,29 +145,37 @@ sed -e "s/^FROM .*/FROM $image/g" -i Dockerfile
 time $sudo docker-compose up
 ```
 
-#### MOZILLA IOT GATEWAY ON DOCKER ARMv7 (TODO) ####
+On benefit of having docker files in sources, 
+is that project can be built on reference OS,
+and be deployed on any as long as docker is supported.
+
+For deeper integration, maybe you should try out 
+upstream's docker images:
+
+* https://hub.docker.com/r/mozillaiot/gateway/
+* https://github.com/mozilla-iot/gateway-docker
+* https://github.com/mozilla-iot/gateway-docker/pull/9
+
 
 ```shell
-sudo=sudo # unless docker properly configured
-project="webthing-node"
-url="https://github.com/tizenteam/${project}"
-branch="sandbox/rzr/devel/artik/master"
-git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
-image="debian:latest"
-sed -e "s/^FROM .*/FROM $image/g" -i Dockerfile
-time $sudo docker-compose up
+etcdir=/home/node/.mozilla-iot
+datadir=/tmp/$etcdir
+sudo docker run \
+    -d \
+    --rm \
+    -v $datadir:$etcdir \
+    --net=host \
+    --name mozilla-iot-gateway \
+    mozillaiot/gateway:arm
+
+
+branch=sandbox/rzr/devel/mine/master
+git clone --depth 1 https://github.com/tizenteam/gateway-docker ; cd gateway-docker
+$sudo docker build .
 ```
 
-Build step can be a bit intensive,
-because some packages like sqlite3 
-are only distributed as source 
-
-
-* TODO: fix sqlite on node10
-  * https://github.com/mapbox/node-sqlite3/issues/994
-  * https://github.com/TizenTeam/node-sqlite3
-  * https://github.com/mapbox/node-sqlite3/issues/418
-  * https://github.com/mapbox/node-sqlite3/pull/1028
+* http://artik.local:8080
+* TODO check and confirm it is working as explained
 
 
 #### MOZILLA IOT GATEWAY ON ARTIK710 (TODO) ####
@@ -211,12 +192,24 @@ the same OS I build IoTivity 1.3.1 package for
 </a>
 )
 
-I have myself managed to make the gateway running ARTIK7 (on fedora 24)
-and it should run fine on others (ARTIK5) natively in a Docker container.
+I have myself managed to make the gateway running ARTIK7 on fedora 24, with nvm node10
+because node LTS failed to run, so I upgraded it and rebuild some adapters.
+
+A couple of fixes were needed and are already upstreamed <a href='https://github.com/mozilla-iot/gateway/pull/1206'>hardcoded path or environment issues</a>, but didn't land in latest release 0.5.0.
+
+Build step can be a bit intensive,
+because some packages like sqlite3 
+are only distributed as source 
 
 
-I managed to rebuild Mozilla's IoT using node TODO,
-a couple of fixes were needed and are already upstreamed <a href='https://github.com/mozilla-iot/gateway/pull/1206'>hardcoded path or environment issues</a>, but didn't land in latest release 0.5.0.
+* TODO: fix sqlite on node10
+
+* https://github.com/mapbox/node-sqlite3/issues/994
+  * https://github.com/TizenTeam/node-sqlite3
+  * https://github.com/mapbox/node-sqlite3/issues/418
+  * https://github.com/mapbox/node-sqlite3/pull/1028
+  
+* TODO: build a docker image on device
 
 I think that latest ARTIK images switched to Ubuntu,
 so I will be even easier to migrate from Raspbian as both are debian based.
@@ -264,7 +257,7 @@ So for now we'll use Debian in a docker container mounted on external USB disk (
 cat /etc/os-release # PRETTY_NAME="Fedora 24 (Twenty Four)"
 sudo=sudo # Or configure your sudoers
 $sudo sync
-$sudo dnf install docker screen time git etckeeper jq
+$sudo dnf install docker docker-compose screen time git etckeeper jq
 screen # Press "Ctrl+a c" : to open a new terminal
 
 $sudo systemctl stop docker
@@ -490,6 +483,7 @@ community implemented drivers,
 which are supported by NPM community,
 since my fixes were upstreamed.
 
+[![mozilla-iot-gateway-sensors-20180406rzr.webm](https://i.vimeocdn.com/video/693119286.jpg)](https://player.vimeo.com/video/263556462#mozilla-iot-gateway-sensors-20180406rzr "Video Demo")
 
 For the record I used this PiHat, and modified it to plug additional sensor in (clap):
 
@@ -572,6 +566,7 @@ it should work same or be easy to adapt.
 
 * TODO: Create adapter for gateway
 
+
 ### EXTRA: WEBTHINGS-WEBAPP: ###
 
 For front end developers, can also try this webapp 
@@ -602,6 +597,8 @@ I should worth a try on updated version.
 Used repository:
 * https://github.com/rzr/webthings-webapp
 * https://github.com/tizenteam/webthings-webapp
+
+[![webthing-esp8266-webapp-20180602rzr](https://i.vimeocdn.com/video/704744529.jpg)](https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596/10 "Demo video")
 
 
 ## TODO: ##
