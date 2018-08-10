@@ -595,7 +595,10 @@ is expecting recent browsers.
 * https://bugs.tizen.org/browse/TRE-1963
 
 Then the application was then "ported" to Android
-for Samsung Internet browser.
+for Samsung Internet browser, just open those links:
+
+* https://tizenteam.github.io/
+* https://tizenteam.github.io/webthings-webapp/
 
 Since PWA was supported in Tizen, so
 I should worth a try on updated version.
@@ -604,7 +607,8 @@ Used repository:
 * https://github.com/rzr/webthings-webapp
 * https://github.com/tizenteam/webthings-webapp
 
-[![webthing-esp8266-webapp-20180602rzr](https://i.vimeocdn.com/video/704744529.jpg)](https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596/10 "Demo video")
+
+[![webthing-webapp-pwa-20180629rzr](https://i.vimeocdn.com/video/710493435.jpg)](https://player.vimeo.com/video/277663462 "webthing-webapp-pwa-20180629rzr")
 
 
 ## TODO: ##
