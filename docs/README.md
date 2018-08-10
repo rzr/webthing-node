@@ -98,11 +98,39 @@ Just install released image on RaspberryPi 2 or 3,
 * TODO: documment
 
 
-#### MOZILLA IOT GATEWAY ON ARTIK710: ####
+```bash
+sudo=sudo # unless docker properly configured
+project="webthing-node"
+url="https://github.com/tizenteam/${project}"
+branch="sandbox/rzr/devel/artik/master"
+git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
+image="debian:latest"
+sed -e "s/^FROM .*/FROM $image/g" -i Dockerfile
+time $sudo docker-compose up 
+```
+
+#### MOZILLA IOT GATEWAY ON DOCKER ARMv7 (TODO) ####
+
+```shell
+sudo=sudo # unless docker properly configured
+project="webthing-node"
+url="https://github.com/tizenteam/${project}"
+branch="sandbox/rzr/devel/artik/master"
+git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
+image="debian:latest"
+sed -e "s/^FROM .*/FROM $image/g" -i Dockerfile
+time $sudo docker-compose up
+```
+
+* TODO: fix sqlite
+** https://github.com/mapbox/node-sqlite3/issues/994
+
+
+#### MOZILLA IOT GATEWAY ON ARTIK710 (TODO) ####
 
 
 I have myself managed to make the gateway running ARTIK7 (on fedora 24)
-and it should run fine on others ARTIK4 naively or in a Docker container,
+and it should run fine on others (ARTIK5) natively in a Docker container.
 
 * TODO : document support
 * https://github.com/TizenTeam/gateway/tree/sandbox/rzr/devel/artik/master
@@ -247,24 +275,28 @@ TODO: Fix to support schemas:
 * https://iot.mozilla.org/schemas/
 
 
-#### IOTJS ON RASPBIAN: ####
+#### WEBTHING-IOTJS ON RASPBIAN: ####
+
+Just install IoT.js
 
 * https://s-opensource.org/2018/03/13/using-iotjs-raspberrypi0/
 * https://dl.bintray.com/rzr/raspbian-9-armhf/
 
+See general instructions above
 
-#### IOTJS ON DOCKER: ####
+
+#### WEBTHING-IOTJS ON DOCKER: ####
 
 * https://hub.docker.com/_/debian/
 
-#### IOTJS ON INTEL EDISON: ###
+#### WEBTHING-IOTJS ON INTEL EDISON: ###
 
 Check instructions at:
 
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
 
 
-### USING TIZENRT: ###
+### IOTJS ON TIZENRT: ###
 
 IoT.js is part of Tizen:RT, but current release is outdated, 
 so it needs to be updated:
@@ -272,7 +304,7 @@ so it needs to be updated:
 * https://github.com/Samsung/TizenRT/pull/2018
 
 
-#### IOTJS ON ARTIK05X: ###
+#### WEBTHING-IOTJS ON ARTIK05X: ###
 
 I made some script helpers to rebuild it all with a single make command,
 this work is still in progress.
