@@ -301,7 +301,11 @@ Check instructions at:
 IoT.js is part of Tizen:RT, but current release is outdated, 
 so it needs to be updated:
 
+TODO: Track upstreaming:
+
 * https://github.com/Samsung/TizenRT/pull/2018
+* https://github.com/TizenTeam/TizenRT
+* https://github.com/TizenTeam/libtuv
 
 
 #### WEBTHING-IOTJS ON ARTIK05X: ###
@@ -331,6 +335,10 @@ TODO: upstream into webthing-node (reusable part)
 
 ### EXTRA: USING SENSORS AND ACTUATORS: ###
 
+"Smart Orchid Demo" showed a clapsensor, which is bascially just a GPIO input of KY-037's digital pin,
+
+* https://github.com/TizenTeam/webthing-node/blob/sandbox/rzr/devel/artik/master/example/toggle-gpio-binary-sensor-thing.js
+
 TODO: This part is not ready, as some changes are not merged upstream
 
 * https://github.com/rzr/mozilla-iot-generic-sensors-adapter/
@@ -359,6 +367,7 @@ since my fixes were upstreamed.
 
 ### EXTRA: ARDUINO AND ESP ###
 
+
 Developing webthing on Arduino APIs or compatible platforms
 such as Espressif ESP8266 or ESP32
 
@@ -368,6 +377,9 @@ Developing is pretty straight forward, and it has been covered earlier:
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
 * https://github.com/mozilla-iot/webthing-arduino
 
+
+"Smart Orchid Demo" showed a light controller and arduino moisture sensor:
+
 The RGB Lamp code is upstreamed at:
 
 * https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/RGBLamp
@@ -375,22 +387,27 @@ The RGB Lamp code is upstreamed at:
 Since I shared a slightly more advanced example that handle ADC port,
 it was used to monitor the moisture of the ground of a plant.
 
+* https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/LevelSensor
+
 Hardware side, I used an Arduino mega with Ethernet Shield 
 (<a href='https://www.slideshare.net/SamsungOSG/iotivity-tutorial-prototyping-iot-devices-on-gnulinux/41'>same one in this IoTivity 1.2 "arduino switch" demo</a>) 
 A moisture sensor is just plugged on analog pin (and +5v GND, the digital pin was not used here, but it can be used for other boards without analog like RaspberryPi and use potentiometer as "hardware threshold").
 
-Check code and instructions upstream:
+* TODO: refactor to handle Arduino's WiFi shield too
 
-* https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/LevelSensor
-* https://github.com/TizenTeam/libtuv
+For reference code was developed in this repo: (but most of it is upstreamed)
+
 * https://github.com/TizenTeam/webthing-esp8266
 
 
 ### EXTRA: ACTIVITY PUB ###
 
-* https://www.npmjs.com/package/mastodon-lite
+* TODO: Document
+* TODO: Create adapter
 
-TODO: Create adapter
+* https://www.npmjs.com/package/mastodon-lite
+* https://github.com/TizenTeam/webthing-node/blob/sandbox/rzr/devel/artik/master/example/actuator-mastodon.js
+* https://github.com/TizenTeam/webthing-node/blob/sandbox/rzr/devel/artik/master/example/mastodon-thing.js
 
 
 ### EXTRA: WEBAPP ###
