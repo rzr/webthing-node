@@ -132,7 +132,9 @@ While developing I made my own docker file:
 
 * [Dockerfile](/../Dockerfile)
 
-    $sudo docker-compose up
+```shell
+$sudo docker-compose up
+```
 
 On benefit of having docker files in sources, 
 is that project can be built on reference OS,
