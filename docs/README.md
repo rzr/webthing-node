@@ -398,6 +398,8 @@ Like previously explained on Edison, you can also try a blinky example on x86:
 
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
 
+[~[webthing-iotjs-20180621rzr](https://i.vimeocdn.com/video/708774087.jpg?mw=960&mh=540)](https://player.vimeo.com/video/276279690#webthing-iotjs-20180621rzr "webthing-iotjs-20180621rzr")
+
 
 ### IOTJS ON TIZENRT: ###
 
@@ -549,6 +551,8 @@ A moisture sensor is just plugged on analog pin (and +5v GND, the digital pin wa
 For reference code was developed in this repo: (but most of it is upstreamed)
 
 * https://github.com/TizenTeam/webthing-esp8266
+
+[![webthing-esp8266-webapp-20180602rzr](https://i.vimeocdn.com/video/704744529.jpg)](https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596/10 "Demo video")
 
 
 ### EXTRA: ACTIVITY PUB: ###
