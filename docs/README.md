@@ -4,7 +4,13 @@
 * Support: https://github.com/TizenTeam/webthing-node/issues
 
 
-## DISCLAIMER: WORK IN PROGRESS ##
+## STATUS: WORK IN PROGRESS ##
+
+Expected to be presented at MozFest
+
+* https://github.com/MozillaFestival/mozfest-program-2018/issues/690
+
+## DISCLAIMER ##
 
 This guide will focus only using iotjs to build webthings.
 
@@ -102,7 +108,7 @@ screen # Press "Ctrl+a c" : to open a new terminal
 sudo systemctl stop docker
 part="/dev/sda1" # TODO: updated if needed
 mnt="/var/lib/docker"
-sudo mkfs.ext4 -L mozilla-iot $part # TODO: verify $part variable
+sudo mkfs.ext4 -L webthings "$part" # TODO: verify $part variable
 
 sudo mkdir -p "$mnt"
 sudo mount "$part" "$mnt"
@@ -122,7 +128,7 @@ branch=sandbox/rzr/devel/artik/master
 git clone --recursive --depth 1 -b $branch $url ; cd $project
 image=arm32v7/debian
 sed -e "s|^FROM .*|FROM $image|g" -i Dockerfile
-time sudo docker-compose up
+time sudo docker-compose up # 17min to build and run
 ```
 
 Expected log:
@@ -211,7 +217,6 @@ Test in an other shell:
 * https://hub.docker.com/_/debian/
 
 
-
 ### USING TIZENRT: ###
 
 IoT.js is part of Tizen:RT, but current release is oudated, 
@@ -226,9 +231,10 @@ I made some script helpers to rebuild it all with a single make command,
 this work is still in progress.
 
 ```sh
+project=tizenrt
 url=https://github.com/tizenteam/tizenrt
 branch=sandbox/rzr/devel/webthing/master
-git clone --recursive --depth 1 -b $branch $url
+git clone --recursive --depth 1 -b $branch $url ; cd $project
 make demo
 
 ```
