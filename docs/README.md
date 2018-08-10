@@ -146,11 +146,11 @@ sudo systemctl restart docker
 Then build container and start service (500 Mb will be used):
 
 ```bash
-project=webthing-node
-url=https://github.com/tizenteam/${project}
-branch=sandbox/rzr/devel/artik/master
-git clone --recursive --depth 1 -b $branch $url ; cd $project
-image=arm32v7/debian
+project="webthing-node"
+url="https://github.com/tizenteam/${project}
+branch="sandbox/rzr/devel/artik/master"
+git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
+image="arm32v7/debian"
 sed -e "s|^FROM .*|FROM $image|g" -i Dockerfile
 time sudo docker-compose up # 17min to build and run
 ```
