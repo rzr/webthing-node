@@ -267,12 +267,12 @@ such as Espressif ESP8266 or ESP32
 Once your have setup build tool, 
 Developing is pretty straight forward, and it has been covered earlier:
 
-https://s-opensource.org/2018/06/21/webthing-iotjs/
-
-https://github.com/mozilla-iot/webthing-arduino
+* https://s-opensource.org/2018/06/21/webthing-iotjs/
+* https://github.com/mozilla-iot/webthing-arduino
 
 The RGB Lamp code is upstreamed at:
-https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/RGBLamp
+
+* https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/RGBLamp
 
 Since I shared a slightly more adavanced example that handle ADC port,
 it was used to monitor the moisture of the ground of a plant.
