@@ -68,9 +68,9 @@ See next chapters for details.
 Since Mozilla Gateway 0.5 has been just released,
 so it should be easy to install on RaspberryPi.
 
-TODO: There is bug in current release,
-with several properties of same patch,
-so the gateway should be rebuild until my patch is merged:
+* TODO: There is bug in current release,
+  with several properties of same patch,
+  so the gateway should be rebuild until my patch is merged:
 
 * https://github.com/mozilla-iot/gateway/issues/1148
 * https://github.com/mozilla-iot/gateway/pull/1249
