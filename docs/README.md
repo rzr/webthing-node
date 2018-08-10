@@ -74,6 +74,7 @@ so it should be easy to install on RaspberryPi.
 
   * https://github.com/mozilla-iot/gateway/issues/1148
   * https://github.com/mozilla-iot/gateway/pull/1249
+  * https://github.com/tizenteam/gateway
 
 Once installed, you can check by installing "virtual-adapter" as explained before:
 
@@ -124,6 +125,7 @@ time $sudo docker-compose up
 * TODO: fix sqlite on node10
   * https://github.com/mapbox/node-sqlite3/issues/994
   * https://github.com/TizenTeam/node-sqlite3
+  * https://github.com/mapbox/node-sqlite3/pull/1028
 
 
 #### MOZILLA IOT GATEWAY ON ARTIK710 (TODO) ####
