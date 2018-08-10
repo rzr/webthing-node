@@ -115,7 +115,7 @@ sudo systemctl restart docker
 
 Then build container and start service (500 Mb will be used):
 
-```
+```bash
 project=webthing-node
 url=https://github.com/tizenteam/${project}
 branch=sandbox/rzr/devel/artik/master
@@ -154,7 +154,7 @@ Test in an other shell:
 
     curl http://localhost:8888 | jq
 
-```json
+```javascript
 {
   "name": "ARTIK710",
   "href": "/",
