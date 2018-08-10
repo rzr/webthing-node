@@ -47,7 +47,7 @@ It's functional but has some limitations that worth to be known:
 
 * MDNS is not supported yet, so no auto discovery of devices
 * Websockets are not implemented yet, while IoT.js recently introduced WS, it's not used yet.
-* Actions and Events are also drooped as not critical.
+* Actions and Events are also dropped as not critical.
 
 ![ARTIK05x](https://camo.githubusercontent.com/c3db9783f1c00fe24ac29d19d007b9b9c0bddb24/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f446a716f4a56415734414577354a342e6a7067)
 
