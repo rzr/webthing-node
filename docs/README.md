@@ -389,8 +389,13 @@ Like previously explained on Edison, you can also try a blinky example on x86:
 
 ### IOTJS ON TIZENRT: ###
 
-IoT.js is part of Tizen:RT, but current release is outdated,
-so it needs to be updated:
+IoT.js is part of Tizen:RT
+
+* https://github.com/Samsung/TizenRT
+* https://github.com/Samsung/TizenRT/blob/master/docs/HowToUseIoTjs.md
+
+Unformatunately current release is outdated, and webthing-iotjs not supporting it yet,
+so better update IoT.js in Tizen:RT.
 
 * TODO: Track upstreaming:
   * https://github.com/Samsung/TizenRT/pull/2018
@@ -402,7 +407,6 @@ To rebuild Tizen:RT with IoT.js
 my upstreamed launcher app should be enabled,
 ROMfs enabled, WiFi configured.
 
-* https://github.com/Samsung/TizenRT/blob/master/docs/HowToUseIoTjs.md
 * https://github.com/Samsung/TizenRT/pull/1982
 
 Or start on existing "iotjs" configuration for ARTIK:
@@ -588,7 +592,6 @@ Used repository:
 
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
 * https://www.artik.io/
-* https://github.com/Samsung/TizenRT
 * https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596/10
 * https://iot.mozilla.org/
 * https://iot.mozilla.org/wot/
