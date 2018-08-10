@@ -30,7 +30,7 @@ var GpioOnOffProperty = require('./gpio-property');
 /// Relate-to: https://developer.artik.io/documentation/artik-05x/getting-started/board-ref.html
 function ARTIK05x(description)
 {
-    Thing.call(this, 'ARTIK05x', 'SDB',
+    Thing.call(this, 'ARTIK05x', 'SingleBoardComputer',
              description || "A web connected ARTIK05x");
     var self = this;
   {
