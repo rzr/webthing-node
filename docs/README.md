@@ -130,7 +130,7 @@ Just install released image on RaspberryPi 2 or 3,
 
 While developing I made my own docker file:
 
-* [Dockerfile](/../Dockerfile)
+* [Dockerfile](../Dockerfile)
 
 ```shell
 $sudo docker-compose up
