@@ -87,7 +87,7 @@ if using GNU/Linux rebuild it from scratch or install snapshot debian packages:
 
 Even if iotjs-1.0 landed in debian,
 we'll use a snapshot version 
-to (<a href='https://github.com/Samsung/iotjs/pull/1400'>enable all features in full profile</a>)
+(<a href='https://github.com/Samsung/iotjs/pull/1400'>to enable all features in full profile</a>)
 
 * https://packages.qa.debian.org/i/iotjs.html
 * https://build.opensuse.org/package/show/home:rzrfreefr:snapshot/iotjs
@@ -95,12 +95,12 @@ to (<a href='https://github.com/Samsung/iotjs/pull/1400'>enable all features in 
 
 #### ON ARTIK710: ####
 
-Several OS are supported on this device, mine was on Fedora-24, now support move to Ubuntu,
+Several OS are supported on this device, mine was on Fedora-24, now support moved to Ubuntu,
 some might also use Tizen too,
-
 So for now we'll use Debian in a docker container mounted on external USB disk (4GB) and an other for swap
 
 ```shell
+cat /etc/os-release # PRETTY_NAME="Fedora 24 (Twenty Four)"
 sudo sync
 sudo dnf install docker screen time git etckeeper jq
 screen # Press "Ctrl+a c" : to open a new terminal
@@ -247,7 +247,7 @@ in longer term I plan to align iotjs API for IO modules for node.
 TODO: upstream into webthing-node (reusable part)
 
 
-### EXTRA: USING SENSORS: ###
+### EXTRA: USING SENSORS AND ACTUATORS: ###
 
 TODO: This part is not ready, as some changes are not merged upstream
 
@@ -262,8 +262,19 @@ community implemented drivers,
 which are suported by NPM community, 
 since my fixes were upstreamed.
 
+
+#### Resources: ####
+
+* https://github.com/TizenTeam/addon-list
+* https://github.com/TizenTeam/node-blinkt
+* https://github.com/TizenTeam/iotjs-modules
 * https://github.com/rzr/iotjs-async
-* 
+* https://github.com/TizenTeam/bmp085-sensor
+* https://github.com/TizenTeam/bmp085
+* https://github.com/TizenTeam/bh1750
+* https://github.com/TizenTeam/gateway
+* https://github.com/TizenTeam/GpiO
+
 
 ### EXTRA: ARDUINO AND ESP ###
 
@@ -290,6 +301,8 @@ A moisture sensor is just plugged on analog pin (and +5v GND, the digital pin wa
 Check code and instructions upsteam:
 
 * https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/LevelSensor
+* https://github.com/TizenTeam/libtuv
+* https://github.com/TizenTeam/webthing-esp8266
 
 
 ### EXTRA: ACTIVITY PUB ###
@@ -315,30 +328,29 @@ This Web of Thing demo "world first smart orchid ever" is not that new, I am sur
 
 ## TODO: ##
 
+* Fix Things description
 * Upstream most I can to webthing-node
 * Rename webthing-node to webthing-iotjs
+* Relocate to https://github.com/rzr/webthing-iotjs
 * Transpile webthing-node for IoT.js (using babel?)
 * Support Tizen
 
 
 ## RESOURCES: ##
 
+* http://www.iotjs.net/
+* https://www.artik.io/
+* https://github.com/Samsung/TizenRT
+* https://github.com/Samsung/TizenRT/blob/master/docs/HowToUseIoTjs.md
 * https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596/10
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
-* https://s-opensource.org/2018/03/13/using-iotjs-raspberrypi0/
 * https://iot.mozilla.org/
 * https://iot.mozilla.org/wot/
 * irc://irc.mozilla.org/#iot
 * https://wiki.tizen.org/User:Pcoval
 * https://s-opensource.org/author/philcovalsamsungcom/
 * https://www.npmjs.com/~rzr
-* https://github.com/TizenTeam/libtuv
-* https://github.com/TizenTeam/iotjs-modules
-* https://github.com/TizenTeam/bmp085-sensor
-* https://github.com/TizenTeam/bmp085
-* https://github.com/TizenTeam/bh1750
-* https://github.com/TizenTeam/gateway
-* https://github.com/TizenTeam/GpiO
-* https://github.com/TizenTeam/webthing-esp8266
-* https://github.com/TizenTeam/addon-list
-* https://github.com/TizenTeam/node-blinkt
+* https://github.com/Samsung/iotjs/wiki/Build-for-ARTIK053-TizenRT
+* https://archive.fosdem.org/2018/schedule/event/tizen_rt/
+* https://www.slideshare.net/SamsungOSG/tizen-rt-a-lightweight-rtos-platform-for-lowend-iot-devices
+* https://source.tizen.org/documentation/tizen-rt/tizen-rt-long-term-goals
