@@ -259,10 +259,10 @@ I made some script helpers to rebuild it all with a single make command,
 this work is still in progress.
 
 ```sh
-project=tizenrt
-url=https://github.com/tizenteam/tizenrt
-branch=sandbox/rzr/devel/webthing/master
-git clone --recursive --depth 1 -b $branch $url ; cd $project
+project="tizenrt"
+url="https://github.com/tizenteam/tizenrt"
+branch="sandbox/rzr/devel/webthing/master"
+git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
 make demo
 
 ```
