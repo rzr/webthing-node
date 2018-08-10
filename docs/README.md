@@ -6,17 +6,11 @@
 
 ## DISCLAIMER: ##
 
-Recently I shared this short video about different webthings working along
-
-https://vimeo.com/279677314#web-of-things-agriculture-20180712rzr
-
-This Web of Thing demo "world first smart orchid ever" is not that new, I am sure
-
 This guide will focus only using iotjs to build webthings.
 
 Instead of freezing "quick and dirty" demo code.
 I prefered to upstream the most I can
-and then provide support on mainline.
+and then provide support on mainline branches.
 
 Upstreaming can be a slow process,
 so I will be also share some developement branches,
@@ -35,6 +29,8 @@ It's functionnal but has some limitations that worth to be known:
 * MDNS is not supported yet, so no auto discovery of devices
 * Websockets are not implemented yet, while IoT.js rencently introduced ws, it's not used here.
 * Actions and Events are also droped as not critical.
+
+![ARTIK05x](https://camo.githubusercontent.com/c3db9783f1c00fe24ac29d19d007b9b9c0bddb24/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f446a716f4a56415734414577354a342e6a7067)
 
 
 ## USAGE: ##
@@ -68,11 +64,11 @@ just install image and eventually install some adapters as explained before:
 
 * https://s-opensource.org/wp-content/uploads/2018/04/virtual-things-1024x795.png
 
-* TODO: There is bug with several properties of same patch so the gateway should be rebuild until my patch is merged:
-  * https://github.com/mozilla-iot/gateway/issues/1148
-  * https://github.com/mozilla-iot/gateway/pull/1249
+TODO: There is bug with several properties of same patch so the gateway should be rebuild until my patch is merged:
 
-![ARTIK05x](https://camo.githubusercontent.com/c3db9783f1c00fe24ac29d19d007b9b9c0bddb24/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f446a716f4a56415734414577354a342e6a7067)
+* https://github.com/mozilla-iot/gateway/issues/1148
+* https://github.com/mozilla-iot/gateway/pull/1249
+* https://github.com/TizenTeam/node-sqlite3
 
 
 ### USING IOTJS ON GNU/LINUX: ###
@@ -80,13 +76,10 @@ just install image and eventually install some adapters as explained before:
 Only snapshot version if currently supported, 
 if using GNU/Linux rebuild it from scratch or install snapshot debian packages:
 
-* https://s-opensource.org/2018/03/13/using-iotjs-raspberrypi0/
 
+#### ON DEBIAN: ####
 
-#### ON DOCKER ####
-
-
-https://hub.docker.com/_/debian/
+* https://build.opensuse.org/package/show/home:rzrfreefr:snapshot/iotjs
 
 
 #### ON ARTIK710: ####
@@ -152,6 +145,18 @@ curl http://localhost:8888
 ```
 
 
+#### ON RASPBIAN: ####
+
+* https://s-opensource.org/2018/03/13/using-iotjs-raspberrypi0/
+* https://dl.bintray.com/rzr/raspbian-9-armhf/
+
+
+#### ON DOCKER: ####
+
+https://hub.docker.com/_/debian/
+
+
+
 ### USING TIZENRT: ###
 
 IoT.js is part of Tizen:RT, but current release is oudated, 
@@ -180,23 +185,25 @@ in longer term I plan to align iotjs API for IO modules for node.
 TODO: upstream into webthing-node (reusable part)
 
 
-### USING SENSORS: ###
+### EXTRA: USING SENSORS: ###
 
 TODO: This part is not ready, as some changes are not merged upstream
 
-https://github.com/rzr/mozilla-iot-generic-sensors-adapter/
+* https://github.com/rzr/mozilla-iot-generic-sensors-adapter/
 
 Check supported sensors in this high level wrapper to drivers:
 
-https://github.com/rzr/generic-sensors-lite
+* https://github.com/rzr/generic-sensors-lite
 
 For now I recommend to use either BH1650 or BMP082 modules,
 community implemented drivers, 
 which are suported by NPM community, 
 since my fixes were upstreamed.
 
+* https://github.com/rzr/iotjs-async
+* 
 
-### EXTRA: Compare to ARDUINO ###
+### EXTRA: ARDUINO AND ESP ###
 
 Developing webthing on ardunino or compatible platforms
 such as Espressif ESP8266 or ESP32
@@ -223,12 +230,43 @@ Check code and instructions upsteam:
 * https://github.com/mozilla-iot/webthing-arduino/tree/master/examples/LevelSensor
 
 
+### EXTRA: ACTIVITY PUB ###
+
+* https://www.npmjs.com/package/mastodon-lite
+
+TODO: Create adapter
+
+
+### EXTRA: WEBAPP ###
+
+* https://github.com/rzr/webthings-webapp
+
 ## DEMO: ##
+
+This Web of Thing demo "world first smart orchid ever" is not that new, I am sure
 
 [![web-of-things-agriculture-20180712rzr.webm](https://s-opensource.org/wp-content/uploads/2018/07/web-of-things-agriculture-20180712rzr.gif)](https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm "Video Demo")
 
+* https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm
 
-## REFERENCES: ##
+## RESOURCES: ##
 
+* https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596/10
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
 * https://s-opensource.org/2018/03/13/using-iotjs-raspberrypi0/
+* https://iot.mozilla.org/
+* https://iot.mozilla.org/wot/
+* irc://irc.mozilla.org/#iot
+* https://wiki.tizen.org/User:Pcoval
+* https://s-opensource.org/author/philcovalsamsungcom/
+* https://www.npmjs.com/~rzr
+* https://github.com/TizenTeam/libtuv
+* https://github.com/TizenTeam/iotjs-modules
+* https://github.com/TizenTeam/bmp085-sensor
+* https://github.com/TizenTeam/bmp085
+* https://github.com/TizenTeam/bh1750
+* https://github.com/TizenTeam/gateway
+* https://github.com/TizenTeam/GpiO
+* https://github.com/TizenTeam/webthing-esp8266
+* https://github.com/TizenTeam/addon-list
+* https://github.com/TizenTeam/node-blinkt
