@@ -1,6 +1,6 @@
 # WEBTHING-IOTJS #
 
-* URL: https://github.com/TizenTeam/webthing-node/tree/sandbox/rzr/devel/iotjs/master/docs
+* URL: https://github.com/TizenTeam/webthing-node/tree/sandbox/rzr/devel/artik/master/docs
 * Support: https://github.com/TizenTeam/webthing-node/issues
 
 
@@ -89,16 +89,21 @@ to (<a href='https://github.com/Samsung/iotjs/pull/1400'>enable all features in 
 
 #### ON ARTIK710: ####
 
-Several OS are supported on this device, 
-but for now we'll use Debian in a docker container mounted on external USB disk (4GB) and an other for swap
+Several OS are supported on this device, mine was on Fedora-24, now support move to Ubuntu,
+some might also use Tizen too,
 
-```
-sudo dnf install docker screen time
+So for now we'll use Debian in a docker container mounted on external USB disk (4GB) and an other for swap
+
+```shell
+sudo sync
+sudo dnf install docker screen time git etckeeper jq
 screen # Press "Ctrl+a c" : to open a new terminal
+
 sudo systemctl stop docker
 part="/dev/sda1" # TODO: updated if needed
 mnt="/var/lib/docker"
 sudo mkfs.ext4 -L mozilla-iot $part # TODO: verify $part variable
+
 sudo mkdir -p "$mnt"
 sudo mount "$part" "$mnt"
 swap=/dev/sdb1
@@ -107,12 +112,13 @@ sudo swapon $swap
 free
 sudo systemctl restart docker
 ```
+
 Then build container and start service (500 Mb will be used):
 
 ```
 project=webthing-node
 url=https://github.com/tizenteam/${project}
-branch=sandbox/rzr/devel/iotjs/master
+branch=sandbox/rzr/devel/artik/master
 git clone --recursive --depth 1 -b $branch $url ; cd $project
 image=arm32v7/debian
 sed -e "s|^FROM .*|FROM $image|g" -i Dockerfile
@@ -145,9 +151,10 @@ Stopping webthingnode_web_1 ... done
 
 Test in an other shell:
 
-```
-curl http://localhost:8888 | jq
 
+    curl http://localhost:8888 | jq
+
+```json
 {
   "name": "ARTIK710",
   "href": "/",
