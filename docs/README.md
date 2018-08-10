@@ -7,9 +7,9 @@
 This document is still in draft state, but review is always welcome,
 if you try to replicate it and stuck on missing instructions
 I would appreciate that you file issues
-or even better make pull request (just edit in github) that insert TODO lines" in following chapters, like:
+or even better make pull request (just edit in github) that insert "TODO marks" in following chapters, like:
 
-* TODO: please explain more and then remove this TODO line
+* TODO: please explain more this chapter and then remove this TODO line
 
 Support is also possible, ask in:
 
