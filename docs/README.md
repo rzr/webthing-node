@@ -26,7 +26,7 @@ but I hope those hints will inspire you to create different projects, let it kno
 * https://player.vimeo.com/video/279677314#web-of-things-agriculture-20180712rzr.webm
 
 
-## DISCLAIMER ##
+## DISCLAIMER: ##
 
 This guide will focus only using iotjs to build webthings.
 
@@ -38,7 +38,6 @@ Upstreaming can be a slow process,
 so I will be also share some development branches,
 but they are expected to move,
 since I am continuously catching up upstream.
-
 
 
 ## INTRODUCTION: ##
@@ -423,9 +422,15 @@ TODO: upstream into webthing-node (reusable part)
 
 ### EXTRA: USING SENSORS AND ACTUATORS: ###
 
-"Smart Orchid Demo" showed a clapsensor, which is bascially just a GPIO input of KY-037's digital pin,
+Note: It's possible to use I2C sensors on IoT.js but since some sensors changes are not yet upstreamed,
+this chapter will explain using node.
+
+"Smart Orchid Demo" showed a clapsensor, which is bascially just a GPIO input of KY-037's digital pin
 
 * https://github.com/TizenTeam/webthing-node/blob/sandbox/rzr/devel/artik/master/example/toggle-gpio-binary-sensor-thing.js
+
+I used it on a Raspberry Pi using node, but it should work on any other device.
+
 
 Demo also feature some I2C sensors, they were using nodejs runtime:
 
@@ -438,19 +443,19 @@ community implemented drivers,
 which are supported by NPM community,
 since my fixes were upstreamed.
 
-* TODO: port to IoT.js, not ready as some changes are not yet merged upstream
-
-This module can be also used on gateway using this adapter already released since mozilla-iot-gateway-0.4:
-
-* https://github.com/rzr/mozilla-iot-generic-sensors-adapter/
-
 
 For the record I used this PiHat, and modified it to plug additional sensor in (clap):
 
 * https://www.tindie.com/products/anavi/anavi-flex-raspberry-pi-hat-for-iot/
 * https://github.com/AnaviTechnology/anavi-flex/issues/1#issuecomment-274616910
 
+Note that "generic-sensor-lite" module can be also used on gateway using this adapter already released since mozilla-iot-gateway-0.4:
+
+* https://github.com/rzr/mozilla-iot-generic-sensors-adapter/
+
+
 [![flex-hat](https://camo.githubusercontent.com/764a65bf532303ff0bc7f007482fbf90d753f568/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f44686d5038463458554141515348442e6a7067)](https://twitter.com/RzrFreeFr/status/1016001475401658370# "flex-pi-hat-gpio-mod")
+
 
 
 #### IO RESOURCES: ####
