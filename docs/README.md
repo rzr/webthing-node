@@ -146,7 +146,7 @@ url="https://github.com/tizenteam/${project}"
 branch="sandbox/rzr/devel/artik/master"
 git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
 image="debian:latest"
-sed -e "s/^FROM .*/FROM $image/g" -i Dockerfile
+sed -e "s|^FROM .*|FROM $image|g" -i Dockerfile
 time $sudo docker-compose up
 ```
 
@@ -183,7 +183,7 @@ So rebuild from my branch:
 sudo="sudo"
 project="gateway-docker"
 url="https://github.com/tizenteam/gateway-docker"
-branch="sandbox/rzr/review/master"
+branch="master"
 git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
 time $sudo docker-compose up
 ```
@@ -218,14 +218,12 @@ are only distributed as source
 
 
 * TODO: fix sqlite on node10
-
-* https://github.com/mapbox/node-sqlite3/issues/994
+  * https://github.com/mapbox/node-sqlite3/issues/994
   * https://github.com/TizenTeam/node-sqlite3
   * https://github.com/mapbox/node-sqlite3/issues/418
   * https://github.com/mapbox/node-sqlite3/pull/1028
+  * https://dl.bintray.com/rzr/devel/
   
-* TODO: build a docker image on device
-
 I think that latest ARTIK images switched to Ubuntu,
 so I will be even easier to migrate from Raspbian as both are debian based.
 
@@ -235,6 +233,14 @@ Optionally, If you have the interposer board you can also try out
 the generic sensor adapter ARM binaries should work too:
 
 * https://s-opensource.org/2018/04/25/mozilla-iot-generic-sensors/
+
+* TODO: build a docker image on device:
+
+    timer $sudo docker build https://github.com/tizenteam/gateway-docker.git#master
+    time $sudo docker-compose up
+    + npm install yarn
+    Illegal instruction (core dumped)
+
 
 More info about this device:
 
@@ -299,7 +305,7 @@ url="https://github.com/tizenteam/${project}"
 branch="sandbox/rzr/devel/artik/master"
 git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
 image="arm32v7/debian"
-sed -e "s/^FROM .*/FROM $image/g" -i Dockerfile
+sed -e "s|^FROM .*|FROM $image|g" -i Dockerfile
 time sudo docker-compose up # 17min to build and run
 ```
 
@@ -386,6 +392,8 @@ More info about this device:
 
 * https://www.artik.io/
 
+[![artik710.png](https://pbs.twimg.com/media/DkQ3b9MXsAAA3hu.jpg)(https://twitter.com/RzrFreeFr/status/1028008260253745152#artik710.png "#ARTIK710 WebThing")
+
 
 #### WEBTHING-IOTJS ON RASPBIAN: ####
 
@@ -419,7 +427,7 @@ IoT.js is part of Tizen:RT, check related intructions:
 * https://github.com/Samsung/iotjs/wiki/Build-for-ARTIK053-TizenRT
 * https://github.com/Samsung/TizenRT
 
-Unformatunately current release is outdated, and webthing-iotjs not supporting it yet,
+Unfortunately current release is outdated, and webthing-iotjs not supporting it yet,
 so better update IoT.js in Tizen:RT.
 
 * TODO: Track upstreaming:
@@ -456,11 +464,14 @@ project="tizenrt"
 url="https://github.com/tizenteam/tizenrt"
 branch="sandbox/rzr/devel/webthing/master"
 git clone --recursive --depth 1 -b "$branch" "$url" ; cd "$project"
-make demo
-
+make menuconfig # Configure WiFi to connect your hotspot (HowToUseIoTjs.md)
+make demo # Add tty=/dev/ttyUSB1 # Add this if not detected properly
 ```
 
-It was tested on ARTIK055s but should be also working on ARTIK053 or ARTIK053s, just overrode machine ie:
+It was tested on ARTIK055s but should be also working on ARTIK053 or ARTIK053s,
+just override machine variable in any make calls 
+
+ie:
 
     make demo machine=artik053
 
