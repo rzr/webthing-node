@@ -8,7 +8,9 @@
 This document is still in draft state, but review is always welcome,
 if you try to replicate it and stuck on missing instructions
 I would appreciate that you file issues
-or even better make pull request that insert "TODO: please explain more" in following chapters.
+or even better make pull request that insert TODO lines" in following chapters, like:
+
+* TODO: please explain more and then remove this TODO line
 
 Support is also possible, ask in:
 
@@ -54,9 +56,12 @@ since I am continuously catching up upstream.
 
 Webthing-iotjs is a fork of webthing-node adapted for IoT.js runtime.
 
-It's functional but has some limitations that worth to be known:
+* https://github.com/mozilla-iot/webthing-node
+* http://www.iotjs.net/
 
-* MDNS is not supported yet, so no auto discovery of devices
+Althrough it is functional, it has some limitations that worth to be known:
+
+* MDNS is not supported yet, so no auto discovery of devices so URL should be added from UI.
 * Websockets are not implemented yet, while IoT.js recently introduced WS, it's not used yet.
 * Actions and Events are also dropped as not critical.
 
@@ -582,7 +587,6 @@ Used repository:
 ## RESOURCES: ##
 
 * https://s-opensource.org/2018/06/21/webthing-iotjs/
-* http://www.iotjs.net/
 * https://www.artik.io/
 * https://github.com/Samsung/TizenRT
 * https://www.slideshare.net/SamsungOSG/the-complex-iot-equation-and-floss-solutions-101449596/10
