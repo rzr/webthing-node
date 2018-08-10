@@ -208,7 +208,7 @@ Test in an other shell:
 
 #### ON DOCKER: ####
 
-https://hub.docker.com/_/debian/
+* https://hub.docker.com/_/debian/
 
 
 
@@ -225,7 +225,7 @@ so it needs to be updated:
 I made some script helpers to rebuild it all with a single make command,
 this work is still in progress.
 
-```
+```sh
 url=https://github.com/tizenteam/tizenrt
 branch=sandbox/rzr/devel/webthing/master
 git clone --recursive --depth 1 -b $branch $url
