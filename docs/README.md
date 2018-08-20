@@ -94,7 +94,7 @@ to avoid generated overhead using transpiliers such as babel.
 * Add thing URL adapter
 * Deploy iotjs on supported devices
 * Run webthing example on target device
-* Add thing by URL from gateway's UI.
+* Add thing by URL from gateway's UI ($ip:$port conventionally 8888 if 80 not usable)
 
 See next chapters for details.
 
@@ -105,7 +105,7 @@ Since Mozilla Gateway 0.5 has been just released,
 so it should be easy to install on RaspberryPi.
 
 * TODO: There is bug in current (or all previous) release 
-  with several properties of same patch,
+  with several properties of same type,
   so the gateway should be rebuild until my patch is merged:
 
   * https://github.com/mozilla-iot/gateway/issues/1148
