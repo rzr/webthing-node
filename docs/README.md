@@ -421,33 +421,13 @@ Like previously explained on Edison, you can also try a blinky example on x86:
 
 ### IOTJS ON TIZENRT: ###
 
-IoT.js is part of Tizen:RT, check related intructions:
+IoT.js is part of Tizen:RT. Tizen:RT has good doucmentations on [How to use IoTjs](https://github.com/Samsung/TizenRT/blob/master/docs/HowToUseIoTjs.md) and [Build-for-ARTIK053-TizenRT](https://github.com/Samsung/iotjs/wiki/Build-for-ARTIK053-TizenRT).
 
-* https://github.com/Samsung/TizenRT/blob/master/docs/HowToUseIoTjs.md
-* https://github.com/Samsung/iotjs/wiki/Build-for-ARTIK053-TizenRT
-* https://github.com/Samsung/TizenRT
+To replicate WEBTHING-IOTJS ON ARTIK05X demo, please pull the code base at:
 
-Unfortunately current release is outdated, and webthing-iotjs not supporting it yet,
-so better update IoT.js in Tizen:RT.
+https://github.com/rzr/webthing-iotjs/
 
-* TODO: Track upstreaming:
-  * https://github.com/Samsung/TizenRT/pull/2018
-  * https://github.com/TizenTeam/TizenRT
-  * https://github.com/TizenTeam/libtuv
-
-
-To rebuild Tizen:RT with IoT.js 
-my upstreamed launcher app should be enabled,
-ROMfs enabled, WiFi configured.
-
-* https://github.com/Samsung/TizenRT/pull/1982
-
-Or start on existing "iotjs" configuration for ARTIK:
-* https://github.com/Samsung/TizenRT/pull/2009
-
-Finally javascripts should placed in contents subdir.
-
-More resources about TizenRT:
+If you are interested in understanding more TizenRT in the context of this demo, the following links might be useful -
 
 * https://www.slideshare.net/SamsungOSG/tizen-rt-a-lightweight-rtos-platform-for-lowend-iot-devices
 * https://archive.fosdem.org/2018/schedule/event/tizen_rt/
